@@ -104,7 +104,7 @@ This agent topology uses four of these dimensions, paired into two complementary
 
 ## Battle-Tested
 
-This topology was used to build [SecureOdoo](https://github.com/softagram/softagram-odoo-addons) — a 10-rule security scanner for Odoo with 99 tests passing on both Odoo 18 and 19. The four agents collaboratively produced ~3000 lines of production code across 6 modules.
+This topology was used to build SecureOdoo (will be published later) — a 10-rule security scanner for Odoo with 99 tests passing on both Odoo 18 and 19. The four agents collaboratively produced ~3000 lines of production code across 6 modules.
 
 ## License
 
