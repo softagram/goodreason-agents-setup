@@ -17,4 +17,19 @@ Use the sub-agents defined in `.claude/agents/`:
 
 The main agent's job is to coordinate information flow between these agents and ensure no **Disconnections** occur.
 
+## Coordinator Discipline
+
+The main agent (coordinator) is responsible for pacing. Speed must not override process.
+
+**Before dispatching Implementer:**
+- Verify tests can be run (build tools available, Docker running, etc.)
+- Break the Architect's plan into single-phase units — one phase per Implementer dispatch
+
+**Between Implementer phases:**
+- Run tests yourself (Bash) and verify output before proceeding
+- Dispatch Evolution after each Implementer return, not just at the end
+- Do not combine multiple phases into a single Implementer dispatch
+
+**Gate rule:** If the Implementer reports it cannot run tests, do NOT dispatch the next phase. Fix the blocker first.
+
 See GOODREASON.md for the full GoodReason meta-ontology reference.

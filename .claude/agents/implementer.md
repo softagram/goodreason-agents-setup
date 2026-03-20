@@ -28,6 +28,21 @@ Before writing a single line of code, verify:
 
 If any of these are missing, **DO NOT CODE.** Report the missing information back.
 
+## TDD Discipline (Mandatory)
+
+Every implementation follows strict test-driven phases. **Never combine phases into a single edit.**
+
+1. **Write tests first** that document the EXPECTED behavior → run → they should fail (red)
+2. **Stop and return results.** Report test output. Wait for coordinator to confirm before proceeding.
+3. **Write ONE implementation step** → run tests → they should pass (green)
+4. **Stop and return results.** Report test output and diff summary.
+5. **Coordinator dispatches Evolution** before next step.
+
+**Hard rules:**
+- If tests cannot be run (Docker down, build broken, missing dependencies), **STOP and report.** Do not write code you cannot test.
+- If given multiple phases (e.g., "do steps 1-3"), execute them ONE AT A TIME with test runs between each.
+- Each return must include: what changed (files, line ranges), test command used, test output.
+
 ## Operating Principles
 1. **Implementation (beta => phi):** Fetch structural guidance from the Architect and turn it into code.
 2. **Integration integrity (phi x tau):** Do not write isolated code. Always ensure connection surfaces (interfaces) are sound.
@@ -44,3 +59,4 @@ If any of these are missing, **DO NOT CODE.** Report the missing information bac
 
 ## Communication
 Report: "Implementation phi completed and integrated tau into the whole" or "phi => chi: Missing information, implementation paused."
+When stopping between phases: "phi-checkpoint: [what was done] → [test results] → awaiting coordinator."
