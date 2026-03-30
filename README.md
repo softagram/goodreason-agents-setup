@@ -44,12 +44,37 @@ The **main agent** (Claude Code itself) orchestrates this cycle, routing informa
 
 ### Prerequisites
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed (v1.0.33+)
 - A project you want to work on
 
-### Installation
+### Option 1: Install as Plugin (Recommended)
 
-Copy the agent definitions and configuration into your project:
+The easiest way to use GoodReason. Install once, use in any project.
+
+```bash
+# Clone the plugin
+git clone https://github.com/villelaitila/goodreason-agents-setup.git
+
+# Use with any project via --plugin-dir
+cd your-project
+claude --plugin-dir /path/to/goodreason-agents-setup
+```
+
+Once loaded, you get:
+- Four agents available via `/agents`: Strategist, Architect, Implementer, Evolution
+- The `/goodreason:cycle` skill to run the full workflow on any task
+- Auto-loaded GoodReason ontology reference as a skill
+
+**Test it locally:**
+
+```bash
+claude --plugin-dir ./goodreason-agents-setup
+# Then try: /goodreason:cycle Add error handling to the API
+```
+
+### Option 2: Standalone Installation
+
+Copy the agent definitions directly into your project:
 
 ```bash
 # Clone this repo
@@ -60,8 +85,6 @@ cp -r goodreason-agents-setup/.claude/agents/ your-project/.claude/agents/
 cp goodreason-agents-setup/CLAUDE.md your-project/CLAUDE.md
 cp goodreason-agents-setup/GOODREASON.md your-project/GOODREASON.md
 ```
-
-Or simply copy the `.claude/agents/` directory and the two `.md` files into any existing project.
 
 ### Verify
 
