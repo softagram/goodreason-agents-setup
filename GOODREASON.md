@@ -1,76 +1,143 @@
 # GoodReason Meta-ontology: A Compass for Thinking
 
-**GoodReason** is a meta-ontology grounded in systems thinking. It serves as a "compass for thinking" that can be used to analyze complex systems, solve wicked problems, and manage large-scale change situations.
+**GoodReason** is a universal meta-ontology framework for systematic analysis of complex situations. It serves as a "compass for thinking" that can be used to analyze complex systems across any domain — business, technical, social, or geopolitical — to solve wicked problems and manage large-scale change.
 
-The meta-ontology helps identify a system's different dimensions, their relationships, and potential failure modes before they escalate into problems.
+The meta-ontology helps identify a system's different dimensions, their relationships, and potential failure modes before they escalate into problems. Its core promise is to reduce blind spots by forcing attention to angles that human and AI reasoning alike tend to skip.
 
 ---
 
 ## 1. Eight Symbols (Compass Points)
 
-A system is divided into eight fundamental dimensions. Each symbol has a fixed meaning and position on the compass.
+A system of interest is divided into eight fundamental dimensions. Each symbol has a fixed position on the compass and a rich cluster of meanings — the Greek letters carry the semantics so that no single English word over-restricts the interpretation.
 
 | Symbol | Name | Meaning | Position |
 | --- | --- | --- | --- |
-| alpha | **Purpose** | Values, aspirations, goals, vision | North (N) |
-| pi | **Theory** | Models, logic, concepts, abstractions | Northwest (NW) |
-| chi | **Information** | Environment, data, observations, facts | West (W) |
-| delta-psi | **Change** | Change pressure, transformation, evolution | Southwest (SW) |
-| omega | **Feedback** | Monitoring, effects, goal-orientation | South (S) |
-| tau | **Integration** | Connections, interfaces, coherence | Southeast (SE) |
-| phi | **Action** | Implementation, solution, intervention, R&D | East (E) |
-| beta | **Structure** | Architecture, organization, hierarchy | Northeast (NE) |
+| **α (alpha)** | **Purpose** | Goals, values, mission, vision, aspirations, intent | North (N) |
+| **π (pi)** | **Theory** | Models, logic, concepts, abstractions, design science | Northwest (NW) |
+| **χ (chi)** | **Information** | Facts, environment, data, observations, operational reality, context | West (W) |
+| **Δψ (delta-psi)** | **Transformation** | Change, change pressure, development, evolution, renewal, pending transitions | Southwest (SW) |
+| **Ω (omega)** | **Feedback** | Monitoring, effects, measurement, goal-setting and goal-reaching, learning loops | South (S) |
+| **τ (tau)** | **Integration** | Connections, interfaces, coherence, impact, integrability | Southeast (SE) |
+| **φ (phi)** | **Action** | Implementation, intervention, solution, R&D, design and execution | East (E) |
+| **β (beta)** | **Structure** | Architecture, organization, hierarchy, how things are organized | Northeast (NE) |
+
+Each symbol is a **semantic cluster**, not a single English word. When applying GoodReason:
+
+- **χ (chi)** is much more than a facts file: it is everything observable about the environment and the operational reality — logs, measured facts, declared metadata, the state of the world as it actually is, as opposed to how it is claimed to be.
+- **Δψ (delta-psi)** is not only change pressure but also change itself, ongoing transformation, declared-but-not-yet-executed renewal, and the delta between what is and what is becoming.
+- **α (alpha)** spans values, mission, dream, goal, aspiration — what the system *wants* to be.
+- **φ (phi)** is concrete action and design intervention — what is actually being *done*.
+
+Resist the habit of collapsing each symbol into a single keyword. The richness of the cluster is what makes the framework useful.
 
 ---
 
-## 2. Relational Operators (Dynamics)
+## 2. The 28 Pairwise Relationships — Where the Insight Lives
 
-Relationships between symbols describe the system's movement, tension, and health.
+With 8 symbols there are exactly **C(8,2) = 28 unique pairs**:
 
-* **x (Resonance):** Parts reinforce each other and operate in synchrony.
-* **/ (Disconnection):** Systemic blindness; parts are unaware of each other.
-* **interference (Interference):** Friction or active conflict; parts wear each other down.
-* **domination (Pathology):** Destructive dominance; A completely overrides B.
-* **~ (Bridge):** Emerging contact or loose coupling.
-* **> (Priority):** Controlled dominance (e.g., strategy guides implementation).
-* **=> (Transition):** Evolutionary progression; A transforms into or produces B.
-* **harmony (Harmony):** Balanced and reciprocal state.
-* **recursive (Recursion):** Self-referencing process or feedback loop.
+```
+α–β  α–χ  α–Δψ  α–π  α–φ  α–τ  α–Ω
+     β–χ  β–Δψ  β–π  β–φ  β–τ  β–Ω
+          χ–Δψ  χ–π  χ–φ  χ–τ  χ–Ω
+                Δψ–π Δψ–φ Δψ–τ Δψ–Ω
+                     π–φ  π–τ  π–Ω
+                          φ–τ  φ–Ω
+                               τ–Ω
+```
+
+**The core analytical discipline of GoodReason is to walk through all 28 pairs deliberately and patiently**, asking for each one: "how does X relate to Y in this specific system?" When you do this, opportunities, problems, dissonances and emergent phenomena surface that would otherwise remain unseen — precisely because both human thinking and AI-agent reasoning tend to default to a few habitual pairs (usually α–φ "goal vs action" or β–π "structure vs theory") and skip the rest.
+
+**Skipping the 28-pair walk is the single most common way to get a shallow analysis that feels thorough but misses the actual leverage points.**
+
+Concrete examples of non-obvious pairs that often carry the decisive finding:
+
+- **χ–α (fact vs claim):** Do the observed operational facts contradict what the system says it is? E.g., a company whose stated value (α) is "privacy by design" while its χ shows 47 subprocessors and no DPIA — a χ–α interference.
+- **Δψ–φ (declared change vs active work):** Is a gap acknowledged as pressure (Δψ) without any actual project (φ) addressing it? "We know we need to" ≠ "we are doing it."
+- **χ–Ω (reality vs measurement):** Is the system measuring (Ω) the things that χ actually shows are happening, or is it measuring comfortable proxies?
+- **π–τ (model vs real interfaces):** Does the theoretical model (π) match how modules actually connect (τ) at runtime?
+- **Δψ–β (change pressure vs structure):** Will existing β survive the change pressure in Δψ, or will it crack?
+
+**Triads (C(8,3) = 56)** deepen this further when needed: the cross-section of any three symbols sometimes reveals emergent phenomena that no pair captures alone. For example, α–χ–φ together surface "we say we want X (α), the facts show Y (χ), and we are actually doing Z (φ)" — a three-way tension that a pair-only analysis would split across multiple findings.
+
+Start with pairs. Use triads when a pair-level finding has more depth than two symbols can express.
 
 ---
 
-## 3. Dimension Status
+## 3. Relational Operators (Dynamics)
+
+Relationships between symbols describe the system's movement, tension, and health. The operators below are not exhaustive — they are the most common ways a relationship can manifest.
+
+| Operator | Meaning |
+| --- | --- |
+| **x (Resonance)** | Parts reinforce each other and operate in synchrony |
+| **/ (Disconnection)** | Systemic blindness; parts are unaware of each other |
+| **interference** | Friction or active conflict; parts wear each other down |
+| **domination** | Destructive dominance; A completely overrides B (pathological) |
+| **~ (Bridge)** | Emerging contact or loose coupling |
+| **> (Priority)** | Controlled dominance (e.g., strategy guides implementation) |
+| **=> (Transition)** | Evolutionary progression; A transforms into or produces B |
+| **harmony** | Balanced and reciprocal state |
+| **recursive** | Self-referencing process or feedback loop |
+
+When walking the 28 pairs, label each relationship with the operator that best fits. "α x φ" reads as "purpose and action are in resonance"; "χ interference α" reads as "facts are in active conflict with the stated goal".
+
+---
+
+## 4. Dimension Status
 
 The "health" of each individual symbol can be assessed on a four-level scale:
 
-1. **Absent:** The dimension is entirely missing from the system.
-2. **Passive:** The dimension exists but has no effect on the whole.
-3. **Distorted:** The dimension is present but corrupted or inauthentic.
-4. **Active:** The dimension is healthy, authentic, and a vital part of the system.
+1. **Absent** — The dimension is entirely missing from the system.
+2. **Passive** — The dimension exists but has no effect on the whole.
+3. **Distorted** — The dimension is present but corrupted or inauthentic.
+4. **Active** — The dimension is healthy, authentic, and a vital part of the system.
+
+A system can have every symbol nominally "present" and still fail badly if several are Passive or Distorted. Status assessment is done per symbol; pair analysis is done between symbols. Both are needed.
 
 ---
 
-## 4. Usage Methods
+## 5. Usage Methods
 
-### Systemic Analysis
+### Systematic analysis (the 28-pair walk)
 
-When analyzing a subject, go through all eight symbols. Ask: "What is this system's pi (logic)?" or "Is phi (action) aligned with alpha (purpose)?".
+1. **Name the system of interest** clearly — what is being analyzed?
+2. **Fill in each of the 8 symbols** for this system. What is its α? Its χ? Its current Δψ? Be specific. "chi-gap" ("this is not yet verified") is a legitimate answer and more useful than a fabricated one.
+3. **Assess each symbol's status** (Absent / Passive / Distorted / Active).
+4. **Walk all 28 pairs deliberately.** For each pair, name the operator and describe the relationship. Flag any interference, disconnection, or domination.
+5. **Escalate to triads** (C(8,3) = 56) only for findings where two symbols are clearly insufficient to describe what is happening.
+6. **Synthesize** — which findings matter most? What are the leverage points?
 
 ### Recursion
 
-Each symbol can contain its own subsystem. For example, a project's Structure (beta) can be opened as its own GoodReason analysis, examining the internal purpose, logic, and feedback of the structure separately.
+Each symbol can contain its own subsystem. For example, a project's β (structure) can be opened as its own GoodReason analysis, examining the internal α, π, χ, Ω, etc. of the structure itself. The same 8 symbols and 28 pairs apply at every level of recursion.
 
 ### Visualization
 
-A GoodReason analysis is often best drawn as a diagram where arrows represent operators. This helps identify bottlenecks and "systemic leaks".
+A GoodReason analysis is often best drawn as a diagram where nodes are symbols and arrows carry operators. This makes bottlenecks and "systemic leaks" visible at a glance, and it forces explicit decisions about which pairs carry findings.
 
 ---
 
-## 5. Why GoodReason?
+## 6. Common Failure Modes
 
-* **Reduces blind spots:** Forces you to look at things from eight different angles.
-* **Common language:** Provides precise vocabulary for communicating complex matters.
-* **Predictability:** Helps see where delta-psi (change pressure) will break beta (structure).
+When GoodReason analysis goes shallow, it almost always fails in one of these ways:
+
+- **Habitual-pair defaulting.** The analyst walks α–φ, β–π, and maybe α–χ, then stops. Everything under Δψ, Ω, and τ is treated as "covered" without actually being examined.
+- **Cluster collapse.** A symbol is reduced to a single keyword (χ becomes "facts.yaml only", Δψ becomes "change pressure only") and its richer semantic cluster is lost. The analysis then cannot see the things that only surface from the full cluster.
+- **Static audit bias.** Every symbol is treated as a yes/no checklist rather than a live state with direction and velocity. This especially hurts Δψ (which is inherently dynamic) and χ (which has a time dimension — facts change).
+- **Isolated symbol thinking.** Each of the 8 symbols is described in isolation; no pair analysis is done. The output reads like a well-organized list but carries zero insight, because insight lives in the relationships, not in the nodes.
+- **Finding-pair mismatch.** A finding that belongs to one pair (e.g., χ–α interference) is recorded under a different pair (α–φ) because that is where the analyst was looking. The finding remains but it is misattributed, and subsequent action targets the wrong lever.
+
+If an analysis does not explicitly walk all 28 pairs and does not explicitly assess each symbol's status, treat it as a first draft, not a finished analysis.
+
+---
+
+## 7. Why GoodReason?
+
+- **Reduces blind spots** — forces you to look at things from eight different angles, and from twenty-eight different relationships, rather than the two or three habitual ones.
+- **Common language** — provides precise vocabulary (symbols + operators + status) for communicating complex matters without the over-restriction of plain English.
+- **Predictability** — helps see where Δψ (change pressure) will break β (structure) *before* it happens.
+- **Domain-agnostic** — the same 8 symbols apply to a software system, a business, a team, a geopolitical situation, or a single decision, at any level of recursion.
 
 ---
 
