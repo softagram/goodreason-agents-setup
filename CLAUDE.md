@@ -17,6 +17,15 @@ Use the sub-agents defined in `.claude/agents/`:
 
 The main agent's job is to coordinate information flow between these agents and ensure no **Disconnections** occur.
 
+## Role Isolation (Strict)
+
+The main agent (Claude Code) is a **coordinator and delegator** and may do hands-on work only in clearly exceptional situations.
+
+- **Strategist, Architect, Implementer and Evolution are always subagents.** Respect their role boundaries. If a subagent appears to use shallow reasoning or an obviously weak approach, report it to the human rather than silently taking over.
+- **If subagent execution is not permitted in the current environment, ask the human how to proceed** rather than quietly absorbing the work into the main conversation.
+- **Allowed for the coordinator:** routing information between agents, maintaining the task list, user communication, and read-only context gathering (search, graph queries, reading files to brief subagents).
+- **Not allowed for the coordinator without an explicit exception:** writing code, redesigning structure, or making quality verdicts. Those belong to the agents.
+
 ## Coordinator Discipline
 
 The main agent (coordinator) is responsible for pacing. Speed must not override process.
@@ -47,5 +56,27 @@ When the task involves diagnosing a problem (bug, unexpected behavior, unclear f
 - Do not combine multiple phases into a single Implementer dispatch
 
 **Gate rule:** If the Implementer reports it cannot run tests, do NOT dispatch the next phase. Fix the blocker first.
+
+## Handoff Contract
+
+Each agent must return an explicit handoff message so the coordinator can audit the chain and the next agent can pick up without guessing:
+
+- **Strategist → Architect:** target + context + build/test status + hypotheses (for diagnostic tasks)
+- **Architect → Implementer:** phased plan; when hypotheses exist, Phase 0 must be a diagnostic experiment
+- **Implementer → coordinator (after Phase 0):** raw diagnostic result + which hypothesis was confirmed or refuted
+- **Implementer → Evolution:** what changed + diff summary + test output + diagnostic result if applicable
+- **Evolution → coordinator:** verdict (proceed / halt / return to earlier agent) + whether the fix works for the right reasons
+
+Missing handoff fields are themselves a finding — send the output back and ask for the missing pieces rather than guessing.
+
+## Lightweight Cycle (small tasks)
+
+For small tasks (scope under roughly 3 files and 50 lines of change), the full four-agent cycle can be disproportionate. In that case:
+
+- **Strategist and Architect may be combined into a single subagent dispatch** producing both the situation assessment and the plan.
+- **The coordinator may take the Implementer role in the main conversation**, but must still follow TDD phasing (red → green → refactor, one step at a time).
+- **Evolution must still run as a separate subagent** at the end. Quality assessment by the same agent that wrote the code is the exact blind spot this topology exists to prevent — never skip this step even on small tasks.
+
+When in doubt whether a task is "small," run the full cycle. The cost of an unneeded Strategist pass is lower than the cost of a missed blind spot.
 
 See GOODREASON.md for the full GoodReason meta-ontology reference.
