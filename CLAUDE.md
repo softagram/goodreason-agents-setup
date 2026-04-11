@@ -21,6 +21,22 @@ The main agent's job is to coordinate information flow between these agents and 
 
 The main agent (coordinator) is responsible for pacing. Speed must not override process.
 
+### Hypothesis Gate (diagnostic tasks)
+
+When the task involves diagnosing a problem (bug, unexpected behavior, unclear failure):
+
+1. **Strategist must produce hypotheses** — not just an assessment. If the Strategist returns a single explanation without alternatives, send it back: "Provide competing hypotheses per protocol."
+2. **Architect must include Phase 0 (diagnostic)** in the plan. If the plan jumps straight to a fix without validating the hypothesis, send it back.
+3. **After Implementer runs Phase 0:** Read the diagnostic result yourself. Decide:
+   - Hypothesis confirmed → proceed to fix phases
+   - Hypothesis refuted → return to Strategist with new evidence, or test next hypothesis
+   - Unexpected result → pause and reassess with Strategist
+4. **Do NOT let the Implementer proceed from Phase 0 to Phase 1 autonomously.** The coordinator makes this decision.
+
+**When to skip the hypothesis gate:** Only when the cause is mechanically trivial (typo, missing import, compiler error pointing to exact line). State why you're skipping.
+
+### Pacing Rules
+
 **Before dispatching Implementer:**
 - Verify tests can be run (build tools available, Docker running, etc.)
 - Break the Architect's plan into single-phase units — one phase per Implementer dispatch
