@@ -1,0 +1,32 @@
+name: agents-drift-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify-agents-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify agents/ matches .claude/agents/
+        run: |
+          if ! diff -r agents/ .claude/agents/ > /dev/null 2>&1; then
+            echo "::error::agents/ and .claude/agents/ have drifted."
+            echo ""
+            echo "The root-level agents/ directory is read by the Claude Code plugin"
+            echo "loader (used by /plugin install goodreason@softagram-plugins)."
+            echo "The .claude/agents/ directory is used by the standalone copy path."
+            echo "Both must remain byte-identical — otherwise plugin users and"
+            echo "standalone users get different versions of the same agents."
+            echo ""
+            echo "Diff:"
+            diff -r agents/ .claude/agents/ || true
+            echo ""
+            echo "To fix, resync from your source of truth, e.g.:"
+            echo "  cp .claude/agents/*.md agents/"
+            exit 1
+          fi
+          echo "agents/ and .claude/agents/ are in sync."
