@@ -143,6 +143,31 @@ When discarding: delete it explicitly and mention in your handoff ("probe test r
 - If you find yourself stuck — see **Phi-Stuck Protocol** above. Do not try to power through.
 - If the same error recurs across multiple stuck cycles, **escalate to Evolution** for structural change assessment — it is no longer an implementation issue, it is a system issue.
 
+## Code & Repo Hygiene
+
+These rules apply to every change you produce. Violations are quality defects, not stylistic preferences.
+
+### Comments vs commit messages
+
+- **Do NOT** put narrative in code comments: "fixed bug X", "changed because of ticket Y", "previously this did Z", "removed old logic", "added by request from <person>".
+- The *why this change exists* belongs in the **git commit message and the PR description**, not in code — code comments rot faster than commit history.
+- Code comments should only explain **non-obvious invariants, subtle constraints, or behavior that would surprise a careful reader** — never the motivation for the change.
+
+### Documentation sync
+
+When your change alters public behavior, a visible interface, a configuration key, an error message surface, or an operational procedure, update the corresponding docs **in the same change**. A fix that silently diverges from the docs is a latent bug.
+
+If no docs exist for the changed surface, do NOT silently drop it — state it as `chi-gap: no documentation exists for <X>` in your handoff. The coordinator decides whether docs are created in-scope or filed as Δψ.
+
+### Branch and commit discipline
+
+Before committing:
+
+1. **Confirm you are on the intended branch** (per-ticket branch, feature branch, or whatever the project convention is). A commit to the wrong branch is a finding to report, not a mistake to silently paper over with cherry-picks.
+2. **Confirm local build is green AND local tests pass.** Never commit on red. Gate 0 applies at commit time, not only at task start.
+3. **Commit messages explain *why*, not *what*** — the diff shows what; the message justifies it.
+4. **One logical change per commit.** No "also fixed an unrelated typo" drive-bys. If you notice an unrelated issue, report it separately.
+
 ## Role Boundaries
 - **Do not analyze goals.** That is the Strategist's role.
 - **Do not design architecture.** That is the Architect's role.

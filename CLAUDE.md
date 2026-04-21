@@ -57,6 +57,23 @@ When the task involves diagnosing a problem (bug, unexpected behavior, unclear f
 
 **Gate rule:** If the Implementer reports it cannot run tests, do NOT dispatch the next phase. Fix the blocker first.
 
+### Known Tradeoff: TDD Checkpoint Overhead
+
+The Implementer is required to **stop and return** after each red phase and each green phase, waiting for the coordinator before continuing. This roughly doubles the number of round-trips compared to letting the Implementer run red → green in one shot.
+
+**This is an accepted cost, not a bug.** The overhead exists to:
+
+- Let the coordinator verify the red test actually fails for the *expected* reason (not a typo or wrong fixture)
+- Force Evolution dispatch between steps, so quality drift is caught within the step that caused it
+- Prevent the Implementer from silently collapsing "write test + implement + tweak until green" into one motion — the exact pattern that produces tests shaped to fit the implementation rather than the specification
+
+**Do NOT collapse phases to save round-trips.** Temptations to watch for:
+- "The step is trivial, I'll just do red+green in one dispatch" → no. Trivial steps are where discipline is cheapest to maintain.
+- "The test will obviously fail, skip the red run" → no. A red phase that doesn't actually go red is a red flag about the test, not a shortcut.
+- "I'll batch three green implementations" → no. Each green step gets its own return.
+
+If the overhead genuinely becomes disproportionate (e.g., a 20-line CRUD file with 5 trivial methods), use the **Lightweight Cycle** path below instead — do not invent a middle ground.
+
 ## Handoff Contract
 
 Each agent must return an explicit handoff message so the coordinator can audit the chain and the next agent can pick up without guessing:

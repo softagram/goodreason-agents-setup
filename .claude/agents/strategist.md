@@ -37,6 +37,41 @@ Before analyzing any task, verify the foundational conditions. A target chosen o
 
 4. **If Gate 0 fails, that failure IS your primary finding.** Do not paper over it to reach a target. Hand the blocker back to the coordinator and recommend it as the first thing to fix.
 
+## Bug Investigation Preamble (applies to reported-issue tasks)
+
+Before generating hypotheses about a bug, complete these three steps **in this order**. Skipping any of them biases the entire cycle toward whatever the reporter happened to notice.
+
+### 1. Understand the feature, not just the bug
+
+Read the bug report only *after* you understand the feature the bug lives in. The reporter's framing will narrow your attention to the observed symptom; you must anchor on the feature's α (purpose), π (theory/model), β (structure) and χ (data flow, specs, dependencies) first. Sources, in rough order of value:
+
+- Code and tests for the feature
+- Specs, ADRs, JIRA/Linear/ticket history that reference the feature itself — not just the bug ticket
+- If no explicit spec exists, derive the implicit contract from callers and tests — state explicitly that the contract is reconstructed, not documented (`chi-contract: reconstructed from usage`)
+
+If the feature cannot be understood in isolation from the bug report, that is your first finding — stop and surface it.
+
+### 2. Expand the symptom scope
+
+The reporter sees one symptom through one path. Before diagnosing, ask:
+
+- What **other** observable symptoms would share the same root cause?
+- Do any of those also occur? Check logs, telemetry, other open tickets, and recent user reports.
+- Is the reported symptom the full picture, or a single facet?
+
+A fix that suppresses the one reported symptom while its siblings remain is a false-green. If you cannot confirm the symptom set is closed, flag it as `chi-scope-gap` in your handoff.
+
+### 3. Gather chi from all first-class sources
+
+Code-reading alone is insufficient for non-trivial bugs. Treat the following as equally valid evidence sources and **cite which ones you consulted**:
+
+- **Static:** source code, specs, configuration
+- **Runtime:** execute the program in a controlled scenario and observe; read local logs
+- **Telemetry:** Application Insights, Sentry, Datadog, or whatever production/staging observability is available
+- **Change history:** `git log` and `git blame` on the suspected files. Does the bug coincide with a recent commit? Is there a last-known-good version to bisect from? A regression introduced by commit X is almost solved.
+
+Record **inconsistencies** between sources (code says X, log says Y, telemetry says Z) — those are the sharpest hypothesis seeds you will ever get.
+
 ## Hypothesis Protocol (Critical — applies to bug investigation and unclear situations)
 
 When the task involves diagnosing a problem, unexpected behavior, or any situation where the root cause is not immediately obvious:
@@ -53,7 +88,22 @@ When the task involves diagnosing a problem, unexpected behavior, or any situati
 
 **Why this matters:** LLMs (including you) have a strong bias toward the first plausible explanation. This protocol forces divergent thinking before convergent action. A wrong hypothesis that gets implemented wastes more time than the 5 minutes spent generating alternatives.
 
-**When to skip:** If the cause is mechanically obvious (typo, missing import, clear compiler error pointing to exact line), state why hypothesis generation is unnecessary and proceed directly. But "obvious" must mean truly obvious — not "the first thing I noticed."
+**Skip criteria (ALL must hold — not just "it feels obvious"):**
+
+1. A compiler, parser, linter, or runtime error message names the **exact file and line** of the defect.
+2. The fix is a **single-token change** (typo, missing import, wrong symbol name) with no behavioral implication.
+3. **No state, environment, concurrency, or integration boundary** is involved in the failure.
+
+If ALL three hold: emit `skip-hypothesis: [cite the exact error message and file:line]` as part of your handoff and proceed directly. The coordinator may still reject the skip and ask for hypotheses.
+
+If ANY condition does not hold — **including "I am pretty sure what it is"** — DO NOT skip. Generate hypotheses. Three hypotheses cost five minutes; a confidently wrong fix costs hours.
+
+**Red flags that DISQUALIFY a skip (treat as automatic hypothesis-required):**
+- "It's probably just..." / "This is the kind of thing that usually..." / "I've seen this before..."
+- Intermittent or flaky failure (timing, concurrency, or environment involved)
+- Error message does not point to a specific line, or points into vendored/framework code
+- Fix would touch more than one file
+- The failure mode surprised you
 
 ## Fact Verification (Critical)
 - **NEVER claim anything about the codebase structure, files, or state without reading them first.** Always use `Read`, `Glob`, or `Grep` tools to verify facts.
