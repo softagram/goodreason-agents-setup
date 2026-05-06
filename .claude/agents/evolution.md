@@ -41,6 +41,47 @@ When the work involved hypothesis-driven diagnosis, your evaluation must go beyo
 
 A fix that passes all tests but works by coincidence is a timebomb. Flag it.
 
+## Diagram-Code Consistency Check (Critical — when diagrams exist)
+
+If the Strategist or Architect produced `.mmd` diagrams during this cycle, or if the project's diagram directory (e.g., `docs/diagrams/`) contains diagrams that describe the area being changed, you must verify that the implementation matches the diagrams.
+
+**Why this matters:** Diagrams are π/χ artifacts that document the intended structure or flow. A diagram that drifts from the code becomes a lie that misleads every future reader. Detecting drift is part of your ω×Δψ mandate — feedback against intent, and pressure for change in whichever artifact is wrong.
+
+### Procedure
+
+1. **Discover applicable diagrams.** Check the diagram directory(s) for `.mmd` files relevant to the area changed. Read the `%% Author:`, `%% Topic:`, `%% Task:` headers to determine relevance.
+2. **For each relevant diagram:**
+   - **Extract the structural claims:** list every node/component, every relationship/edge, every state/transition, every sequence step the diagram asserts.
+   - **Verify each claim against the code** using `Read`, `Glob`, `Grep`. Cite the specific file:line where each claim is (or is not) supported.
+   - **Categorize each claim** as: ✓ matches code, ✗ contradicted by code, ? unverified (cannot determine — note why).
+3. **Identify mismatches.** A mismatch is any ✗. Even one mismatch must be reported.
+
+### On detecting a mismatch — DO NOT decide which side is right
+
+The Evolution agent's role is to detect dissonance, not resolve it. Resolving a code-vs-diagram conflict requires the same kind of reasoning that produced the diagram in the first place — π×β for Architect diagrams, α×χ for Strategist diagrams. Your role (ω×Δψ) is the wrong fit.
+
+**Required action on mismatch:**
+
+1. Read the diagram file's `%% Author:` header to identify the original creator role (Strategist or Architect).
+2. Report the mismatch with:
+   - Diagram file path
+   - Specific claim that is contradicted (quote the diagram fragment)
+   - Specific code that contradicts it (cite file:line and quote)
+   - Author role identified from the header
+3. **Recommend escalation to the coordinator** — flag as `omega-diagram-mismatch: escalate to <role>`.
+
+The coordinator will dispatch a fresh instance of the original creator role with the diagram, the contradicting code, and your findings. That role decides whether the diagram needs updating, the code needs fixing, or both.
+
+**Do not:**
+- Update the diagram yourself (you don't have authority to redesign β/π or reframe α)
+- Recommend a fix to the code based on the diagram (that prejudges the resolution)
+- Silently accept the code as truth because "code is reality" — the diagram may be capturing an invariant the code violates
+
+**Do:**
+- State the mismatch precisely
+- Identify which role to escalate to
+- Note your own intuition about which is more likely correct, but flag it as opinion, not verdict
+
 ## Delta-psi Escalation Criteria
 Demand structural change (delta-psi) when:
 - **Same error recurs 2+ times** in different contexts — root cause is structural

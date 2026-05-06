@@ -10,10 +10,10 @@ Use the sub-agents defined in `.claude/agents/`:
 4. **Evolution (omega x delta-psi):** When running tests or assessing quality and change needs.
 
 ## Workflow Protocol (Cycle)
-1. **Analysis phase:** Ask the `Strategist` agent to form a situation assessment.
-2. **Design phase:** Ask the `Architect` agent to create an implementation plan.
+1. **Analysis phase:** Ask the `Strategist` agent to form a situation assessment. Strategist may produce α×χ-shaped diagrams (stakeholder maps, context diagrams, hypothesis trees) when warranted.
+2. **Design phase:** Ask the `Architect` agent to create an implementation plan. Architect may produce π×β-shaped diagrams (sequence, state, component, data-flow) when warranted.
 3. **Implementation phase:** Ask the `Implementer` agent to execute code changes.
-4. **Verification phase:** Ask the `Evolution` agent to test the result.
+4. **Verification phase:** Ask the `Evolution` agent to test the result and verify any diagrams from steps 1–2 still match the implemented code.
 
 The main agent's job is to coordinate information flow between these agents and ensure no **Disconnections** occur.
 
@@ -74,15 +74,54 @@ The Implementer is required to **stop and return** after each red phase and each
 
 If the overhead genuinely becomes disproportionate (e.g., a 20-line CRUD file with 5 trivial methods), use the **Lightweight Cycle** path below instead — do not invent a middle ground.
 
+## Diagram Protocol
+
+Strategist and Architect may produce mermaid diagrams as part of their handoff when the situation warrants externalizing the model. Each agent decides whether a diagram adds value — diagrams are not mandatory for every cycle, but when they exist they become part of the project's permanent documentation.
+
+### Coordinator's role: writing the diagram files
+
+Strategist and Architect produce diagram **content** in their handoff (mermaid source + suggested filename + suggested placement). They do **not** write files themselves — that preserves their α×χ / π×β role boundaries (analysis and design, not action).
+
+When you receive a handoff containing diagram content:
+
+1. **Detect the project's diagram convention** by checking these directories in order: `docs/diagrams/`, `docs/architecture/`, `architecture/`, `diagrams/`. Use the first one that exists.
+2. **If none exists, create `docs/diagrams/`** as the default placement (assuming `docs/` exists or is appropriate; otherwise create `diagrams/` at the project root).
+3. **Validate the agent's suggestion** — if the agent suggested a different placement and that location doesn't fit project conventions, override and note the change.
+4. **Write each `.mmd` file** with the `%% Author:` header preserved. One diagram per file — never combine.
+5. **Brief the user:** report the absolute paths of the written diagrams and a short pointer on how to view them locally (e.g., "open `docs/diagrams/auth-flow-sequence.mmd` — render with the Mermaid VS Code extension or `mmdc`").
+
+The diagrams persist in version control as project documentation. Treat them as deliverables of the cycle, not throwaway artifacts.
+
+### Verification: Evolution checks diagram-code consistency
+
+When dispatching Evolution, instruct it to verify any `.mmd` files relevant to the change against the implemented code. Evolution flags mismatches but does **not** decide whether the diagram or the code is wrong.
+
+### Conflict-resolution escalation (on Evolution flagging a mismatch)
+
+If Evolution returns `omega-diagram-mismatch: escalate to <role>`:
+
+1. **Read the diagram file's `%% Author:` header** to confirm the original creator role (Strategist or Architect).
+2. **Dispatch a fresh instance of that role** with these inputs:
+   - The diagram file content
+   - The relevant code excerpts that contradict it
+   - Evolution's specific findings (which claim, which file:line)
+   - Explicit question: "Is the diagram or the code correct here, and what is the resolution?"
+3. **The dispatched role decides** — update the diagram, fix the code, or both. Their handoff returns the verdict with reasoning.
+4. **Present the recommendation to the user** with the agent's reasoning. The user has the final say if the resolution requires a judgment call (e.g., the diagram captured an invariant the code violates, but the violation might be intentional).
+
+The dispatched instance is a *fresh* invocation of the same role — not the original conversation. Treat it as a peer review by someone wearing the same hat.
+
+**Note:** Solution is more important than its documentation. If a small diagram update keeps the documentation honest, do it; if the code is wrong because it diverged from the designed structure, fix the code. The Evolution-detect → original-role-decide → coordinator-execute loop ensures both options stay open.
+
 ## Handoff Contract
 
 Each agent must return an explicit handoff message so the coordinator can audit the chain and the next agent can pick up without guessing:
 
-- **Strategist → Architect:** target + context + build/test status + hypotheses (for diagnostic tasks)
-- **Architect → Implementer:** phased plan; when hypotheses exist, Phase 0 must be a diagnostic experiment
+- **Strategist → Architect:** target + context + build/test status + hypotheses (for diagnostic tasks) + any diagrams (mermaid source + filename + placement)
+- **Architect → Implementer:** phased plan; when hypotheses exist, Phase 0 must be a diagnostic experiment + any diagrams (mermaid source + filename + placement)
 - **Implementer → coordinator (after Phase 0):** raw diagnostic result + which hypothesis was confirmed or refuted
 - **Implementer → Evolution:** what changed + diff summary + test output + diagnostic result if applicable
-- **Evolution → coordinator:** verdict (proceed / halt / return to earlier agent) + whether the fix works for the right reasons
+- **Evolution → coordinator:** verdict (proceed / halt / return to earlier agent) + whether the fix works for the right reasons + diagram-code consistency findings (if `.mmd` files exist) with `omega-diagram-mismatch: escalate to <role>` when a mismatch is found
 
 Missing handoff fields are themselves a finding — send the output back and ask for the missing pieces rather than guessing.
 
