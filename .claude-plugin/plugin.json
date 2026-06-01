@@ -1,7 +1,7 @@
 {
   "name": "goodreason",
   "description": "Systems-thinking agent topology that splits complex work across four specialized agents (Strategist, Architect, Implementer, Evolution) with strict role boundaries and coordinated workflows.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": {
     "name": "Ville Laitila / Softagram Oy",
     "url": "https://softagram.com"
