@@ -52,7 +52,7 @@ The **main agent** (Claude Code itself) acts as **coordinator**: routing informa
 Once installed, the plugin loads automatically in every Claude Code session — no per-session flags, no manual file copies. You get:
 
 - Four subagents via `/agents`: Strategist, Architect, Implementer, Evolution
-- Workflow skills: `/goodreason:cycle` and `/goodreason:cycle-review`
+- Workflow skills: `/goodreason:cycle`, `/goodreason:cycle-review`, and `/goodreason:cycle-team`
 - The GoodReason ontology reference as an on-demand skill
 
 Run the full cycle on any task:
@@ -60,6 +60,8 @@ Run the full cycle on any task:
 ```
 /goodreason:cycle Add rate limiting to the public API
 ```
+
+**Team mode** (`/goodreason:cycle-team`) runs the same cycle, but keeps the four agents alive as a named team for its whole duration. They retain context across phases and ask each other direct clarifying questions via `SendMessage` — instead of being re-spawned fresh each phase — while the coordinator still owns phase transitions and the gates.
 
 ### Alternative: `--plugin-dir` (useful for development)
 
