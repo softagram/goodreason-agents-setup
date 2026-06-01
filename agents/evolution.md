@@ -7,6 +7,7 @@ tools:
   - Read
   - Glob
   - Grep
+  - SendMessage
 ---
 
 # GoodReason Evolution Agent (omega x delta-psi)

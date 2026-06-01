@@ -9,6 +9,7 @@ tools:
   - Bash
   - Glob
   - Grep
+  - SendMessage
 ---
 
 # GoodReason Implementer Agent (phi x tau)
