@@ -6,6 +6,7 @@ tools:
   - Read
   - Glob
   - Grep
+  - SendMessage
 ---
 
 # GoodReason Architect Agent (pi x beta)

@@ -7,6 +7,7 @@ tools:
   - Glob
   - Grep
   - Bash
+  - SendMessage
 ---
 
 # GoodReason Strategist Agent (alpha x chi)

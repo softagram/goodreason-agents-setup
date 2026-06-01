@@ -8,10 +8,10 @@ Instead of one AI agent doing everything, GoodReason splits complex work across 
 
 | Agent | Dimension | Role | Tools |
 |-------|-----------|------|-------|
-| **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses for diagnostic tasks, flags goal/reality conflicts | Read, Glob, Grep, Bash |
-| **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep |
-| **Implementer** | Action + Integration | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep |
-| **Evolution** | Feedback + Change | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep |
+| **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses for diagnostic tasks, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
+| **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
+| **Implementer** | Action + Integration | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
+| **Evolution** | Feedback + Change | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
 
 ## Why Separate Agents?
 
