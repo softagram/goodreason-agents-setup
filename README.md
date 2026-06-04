@@ -13,6 +13,8 @@ Instead of one AI agent doing everything, GoodReason splits complex work across 
 | **Implementer** | Action + Integration | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
 | **Evolution** | Feedback + Change | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
 
+> `SendMessage` lets the agents talk to each other directly in **team mode**. It is only active when Claude Code's experimental Agent Teams feature is enabled (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`); without that flag it is simply inert and the agents work exactly as they always have.
+
 ## Why Separate Agents?
 
 Single-agent development blurs roles. The agent that writes code also evaluates it, which produces blind spots. GoodReason enforces separation of concerns:
@@ -52,7 +54,7 @@ The **main agent** (Claude Code itself) acts as **coordinator**: routing informa
 Once installed, the plugin loads automatically in every Claude Code session — no per-session flags, no manual file copies. You get:
 
 - Four subagents via `/agents`: Strategist, Architect, Implementer, Evolution
-- Workflow skills: `/goodreason:cycle` and `/goodreason:cycle-review`
+- Workflow skills: `/goodreason:cycle`, `/goodreason:cycle-review`, and `/goodreason:cycle-team-experimental`
 - The GoodReason ontology reference as an on-demand skill
 
 Run the full cycle on any task:
@@ -60,6 +62,10 @@ Run the full cycle on any task:
 ```
 /goodreason:cycle Add rate limiting to the public API
 ```
+
+**Team mode** (`/goodreason:cycle-team-experimental`) runs the same cycle, but keeps the four agents alive as a named team for its whole duration. They retain context across phases and ask each other direct clarifying questions via `SendMessage` — instead of being re-spawned fresh each phase — while the coordinator still owns phase transitions and the gates.
+
+> ⚠️ **Requires Claude Code's Agent Teams feature**, which is experimental and **off by default**. Enable it with `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` (Claude Code ≥ 2.1.32) — e.g. `{ "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }` in `~/.claude/settings.json`. Without it, the team tools are absent and the skill falls back to the standard `/goodreason:cycle`. The mainline `/goodreason:cycle` and `/goodreason:cycle-review` need **no** flags and work everywhere.
 
 ### Alternative: `--plugin-dir` (useful for development)
 
