@@ -1,13 +1,28 @@
 ---
-name: cycle-team
-description: Run the GoodReason cycle with the four agents as a persistent named team that communicates via SendMessage. Use for complex engineering tasks where agents benefit from retaining context across phases and asking each other direct clarifying questions, instead of being re-spawned fresh each phase.
+name: cycle-team-experimental
+description: EXPERIMENTAL — run the GoodReason cycle with the four agents as a persistent named team that communicates via SendMessage. Requires the Claude Code Agent Teams flag (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1). Use for complex engineering tasks where agents benefit from retaining context across phases and asking each other direct clarifying questions, instead of being re-spawned fresh each phase.
 ---
 
-# GoodReason Workflow Cycle — Team Mode
+# GoodReason Workflow Cycle — Team Mode (Experimental)
 
 Execute the GoodReason workflow on the following task: "$ARGUMENTS"
 
 **Team mode** keeps the four agents alive as named teammates for the whole cycle. They retain context across phases and can ask each other direct clarifying questions via `SendMessage` — instead of being re-spawned fresh each phase as the standard cycle does. You (the main agent) are the **coordinator**, addressable as `team-lead`. You still own phase transitions, the gates, and all user communication.
+
+## Prerequisite — Agent Teams must be enabled
+
+This skill depends on Claude Code's **Agent Teams** feature, which is **experimental and disabled by default**. It needs:
+
+- **Claude Code ≥ 2.1.32**, and
+- the env var **`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`** — set it in `~/.claude/settings.json`:
+  ```json
+  { "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }
+  ```
+  (or export it in the shell before launching Claude Code), then restart the session.
+
+Without it, the `TeamCreate` / `SendMessage` tools are absent and this skill cannot run.
+
+**Preflight + graceful fallback:** before calling `TeamCreate`, confirm the team tools are available. If `TeamCreate` (or `SendMessage`) is not available in this environment, do **not** error out — tell the user the feature is off, give them the one-line setting above, and **fall back to running `/goodreason:cycle`** (the standard non-team cycle, which produces the same result without persistent teammates). Only proceed with the steps below once the team tools are confirmed available.
 
 ## What is identical to `/goodreason:cycle`
 
