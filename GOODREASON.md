@@ -2,13 +2,15 @@
 
 **GoodReason** is a universal meta-ontology framework for systematic analysis of complex situations. It serves as a "compass for thinking" that can be used to analyze complex systems across any domain — business, technical, social, or geopolitical — to solve wicked problems and manage large-scale change.
 
-The meta-ontology helps identify a system's different dimensions, their relationships, and potential failure modes before they escalate into problems. Its core promise is to reduce blind spots by forcing attention to angles that human and AI reasoning alike tend to skip.
+The meta-ontology interprets a system through eight semantic anchors, examining their relationships and potential failure modes before they escalate into problems. Its core promise is to reduce blind spots by forcing attention to angles that human and AI reasoning alike tend to skip.
+
+Canonical source: Eki Laitila, *Axiomatic Systems Science – Geometry of Thinking* (Journal of the ISSS, 70th Meeting, 2026). In that paper's terms the eight symbols are **semantic anchors** with compass directions — do not call them "dimensions" or "8D"; in GoodReason, *dimensions* (1D–8D) name a separate structure, the cognitive degrees of freedom.
 
 ---
 
-## 1. Eight Symbols (Compass Points)
+## 1. Eight Semantic Anchors (Compass Points)
 
-A system of interest is divided into eight fundamental dimensions. Each symbol has a fixed position on the compass and a rich cluster of meanings — the Greek letters carry the semantics so that no single English word over-restricts the interpretation.
+A system of interest is interpreted through eight semantic anchors — foundational roles, like cardinal directions in a coordinate system. Each symbol has a fixed position on the compass and a rich cluster of meanings — the Greek letters carry the semantics so that no single English word over-restricts the interpretation.
 
 | Symbol | Name | Meaning | Position |
 | --- | --- | --- | --- |
@@ -17,8 +19,8 @@ A system of interest is divided into eight fundamental dimensions. Each symbol h
 | **χ (chi)** | **Information** | Facts, environment, data, observations, operational reality, context | West (W) |
 | **Δψ (delta-psi)** | **Transformation** | Change, change pressure, development, evolution, renewal, pending transitions | Southwest (SW) |
 | **Ω (omega)** | **Feedback** | Monitoring, effects, measurement, goal-setting and goal-reaching, learning loops | South (S) |
-| **τ (tau)** | **Integration** | Connections, interfaces, coherence, impact, integrability | Southeast (SE) |
-| **φ (phi)** | **Action** | Implementation, intervention, solution, R&D, design and execution | East (E) |
+| **τ (tau)** | **Implementation** | Implementation, practice, integration, coherence, impact | Southeast (SE) |
+| **φ (phi)** | **Solution** | Solution, design, interface, R&D, possible responses | East (E) |
 | **β (beta)** | **Structure** | Architecture, organization, hierarchy, how things are organized | Northeast (NE) |
 
 Each symbol is a **semantic cluster**, not a single English word. When applying GoodReason:
@@ -26,7 +28,8 @@ Each symbol is a **semantic cluster**, not a single English word. When applying 
 - **χ (chi)** is much more than a facts file: it is everything observable about the environment and the operational reality — logs, measured facts, declared metadata, the state of the world as it actually is, as opposed to how it is claimed to be.
 - **Δψ (delta-psi)** is not only change pressure but also change itself, ongoing transformation, declared-but-not-yet-executed renewal, and the delta between what is and what is becoming.
 - **α (alpha)** spans values, mission, dream, goal, aspiration — what the system *wants* to be.
-- **φ (phi)** is concrete action and design intervention — what is actually being *done*.
+- **φ (phi)** is the designed response — the solution, design or interface that becomes possible. What is actually being *done* in practice belongs to τ.
+- **τ (tau)** is praxis: implementation, practice and integration — where designed solutions meet operational reality.
 
 Resist the habit of collapsing each symbol into a single keyword. The richness of the cluster is what makes the framework useful.
 
@@ -53,12 +56,12 @@ With 8 symbols there are exactly **C(8,2) = 28 unique pairs**:
 Concrete examples of non-obvious pairs that often carry the decisive finding:
 
 - **χ–α (fact vs claim):** Do the observed operational facts contradict what the system says it is? E.g., a company whose stated value (α) is "privacy by design" while its χ shows 47 subprocessors and no DPIA — a χ–α interference.
-- **Δψ–φ (declared change vs active work):** Is a gap acknowledged as pressure (Δψ) without any actual project (φ) addressing it? "We know we need to" ≠ "we are doing it."
+- **Δψ–φ / Δψ–τ (declared change vs designed response vs active work):** Is pressure (Δψ) acknowledged without a designed response (φ) — or designed but never implemented (τ)? "We know we need to" ≠ "we have a solution" ≠ "we are doing it."
 - **χ–Ω (reality vs measurement):** Is the system measuring (Ω) the things that χ actually shows are happening, or is it measuring comfortable proxies?
-- **π–τ (model vs real interfaces):** Does the theoretical model (π) match how modules actually connect (τ) at runtime?
+- **π–τ (model vs runtime practice):** Does the theoretical model (π) match how modules actually connect and run (τ) in practice?
 - **Δψ–β (change pressure vs structure):** Will existing β survive the change pressure in Δψ, or will it crack?
 
-**Triads (C(8,3) = 56)** deepen this further when needed: the cross-section of any three symbols sometimes reveals emergent phenomena that no pair captures alone. For example, α–χ–φ together surface "we say we want X (α), the facts show Y (χ), and we are actually doing Z (φ)" — a three-way tension that a pair-only analysis would split across multiple findings.
+**Triads (C(8,3) = 56)** deepen this further when needed: the cross-section of any three symbols sometimes reveals emergent phenomena that no pair captures alone. For example, α–χ–τ together surface "we say we want X (α), the facts show Y (χ), and we are actually doing Z (τ)" — a three-way tension that a pair-only analysis would split across multiple findings.
 
 Start with pairs. Use triads when a pair-level finding has more depth than two symbols can express.
 
@@ -80,18 +83,18 @@ Relationships between symbols describe the system's movement, tension, and healt
 | **harmony** | Balanced and reciprocal state |
 | **recursive** | Self-referencing process or feedback loop |
 
-When walking the 28 pairs, label each relationship with the operator that best fits. "α x φ" reads as "purpose and action are in resonance"; "χ interference α" reads as "facts are in active conflict with the stated goal".
+When walking the 28 pairs, label each relationship with the operator that best fits. "α x φ" reads as "purpose and solution are in resonance"; "χ interference α" reads as "facts are in active conflict with the stated goal".
 
 ---
 
-## 4. Dimension Status
+## 4. Anchor Status
 
 The "health" of each individual symbol can be assessed on a four-level scale:
 
-1. **Absent** — The dimension is entirely missing from the system.
-2. **Passive** — The dimension exists but has no effect on the whole.
-3. **Distorted** — The dimension is present but corrupted or inauthentic.
-4. **Active** — The dimension is healthy, authentic, and a vital part of the system.
+1. **Absent** — The anchor is entirely missing from the system.
+2. **Passive** — The anchor exists but has no effect on the whole.
+3. **Distorted** — The anchor is present but corrupted or inauthentic.
+4. **Active** — The anchor is healthy, authentic, and a vital part of the system.
 
 A system can have every symbol nominally "present" and still fail badly if several are Passive or Distorted. Status assessment is done per symbol; pair analysis is done between symbols. Both are needed.
 

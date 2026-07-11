@@ -4,13 +4,13 @@ A systems-thinking framework that organizes [Claude Code](https://docs.anthropic
 
 ## What Is This?
 
-Instead of one AI agent doing everything, GoodReason splits complex work across four subagents — each governing a specific dimension of the problem:
+Instead of one AI agent doing everything, GoodReason splits complex work across four subagents — each governing a complementary pair of the meta-ontology's eight semantic anchors:
 
-| Agent | Dimension | Role | Tools |
+| Agent | Anchors | Role | Tools |
 |-------|-----------|------|-------|
 | **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses for diagnostic tasks, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
 | **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
-| **Implementer** | Action + Integration | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
+| **Implementer** | Solution + Implementation | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
 | **Evolution** | Feedback + Change | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
 
 > `SendMessage` lets the agents talk to each other directly in **team mode**. It is only active when Claude Code's experimental Agent Teams feature is enabled (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`); without that flag it is simply inert and the agents work exactly as they always have.
@@ -124,7 +124,7 @@ Put project-specific context in your project's `CLAUDE.md`. The subagents inheri
 
 ### Extending the topology
 
-The full meta-ontology has eight dimensions, not four. You can add more subagents following the remaining pairs. See [GOODREASON.md](GOODREASON.md) for the 28 pairwise relationships and dimension health model.
+The four agents cover all eight semantic anchors as four complementary pairs — but the meta-ontology defines 28 pairwise relationships, and you can add subagents for other pairs. See [GOODREASON.md](GOODREASON.md) for the 28 pairwise relationships and anchor health model.
 
 ## Contributing
 
@@ -143,9 +143,9 @@ If you change an agent definition, edit one copy and mirror it to the other. The
 
 ## Background
 
-GoodReason is a meta-ontology based on systems thinking. It divides any system into eight fundamental dimensions (purpose, theory, information, change, feedback, integration, action, structure) and provides operators to describe their relationships (resonance, disconnection, interference, bridge, priority, transition, harmony, recursive feedback).
+GoodReason is a meta-ontology based on systems thinking. It interprets any system through eight semantic anchors (purpose, theory, information, change, feedback, integration, action, structure) and provides operators to describe their relationships (resonance, disconnection, interference, bridge, priority, transition, harmony, recursive feedback).
 
-This agent topology uses four of those dimensions, paired into two complementary pairs per agent. See [GOODREASON.md](GOODREASON.md) for the complete framework.
+This agent topology pairs those eight anchors into four complementary pairs, one per agent. See [GOODREASON.md](GOODREASON.md) for the complete framework.
 
 ## Battle-Tested
 

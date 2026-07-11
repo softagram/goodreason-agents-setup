@@ -1,24 +1,24 @@
 ---
 name: goodreason-ontology
-description: GoodReason meta-ontology reference for systems thinking. Use when analyzing complex systems, coordinating agents, or applying the GoodReason framework dimensions and operators.
+description: GoodReason meta-ontology reference for systems thinking. Use when analyzing complex systems, coordinating agents, or applying the GoodReason framework anchors and operators.
 ---
 
 # GoodReason Meta-ontology Reference
 
 This plugin uses the GoodReason meta-ontology to organize work across four specialized agents.
 
-## Eight Dimensions (Compass Points)
+## Eight Semantic Anchors (Compass Points)
 
-| Symbol | Name | Meaning |
-| --- | --- | --- |
-| alpha | **Purpose** | Values, aspirations, goals, vision |
-| pi | **Theory** | Models, logic, concepts, abstractions |
-| chi | **Information** | Environment, data, observations, facts |
-| delta-psi | **Change** | Change pressure, transformation, evolution |
-| omega | **Feedback** | Monitoring, effects, goal-orientation |
-| tau | **Integration** | Connections, interfaces, coherence |
-| phi | **Action** | Implementation, solution, intervention |
-| beta | **Structure** | Architecture, organization, hierarchy |
+| Symbol | Name | Meaning | Position |
+| --- | --- | --- | --- |
+| alpha | **Purpose** | Values, aspirations, goals, vision | North (N) |
+| pi | **Theory** | Models, logic, concepts, abstractions | Northwest (NW) |
+| chi | **Information** | Environment, data, observations, facts | West (W) |
+| delta-psi | **Change** | Change pressure, transformation, evolution | Southwest (SW) |
+| omega | **Feedback** | Monitoring, effects, goal-orientation | South (S) |
+| tau | **Implementation** | Implementation, practice, integration | Southeast (SE) |
+| phi | **Solution** | Solution, design, interface | East (E) |
+| beta | **Structure** | Architecture, organization, hierarchy | Northeast (NE) |
 
 ## Relational Operators
 
@@ -32,7 +32,7 @@ This plugin uses the GoodReason meta-ontology to organize work across four speci
 - **harmony:** Balanced reciprocal state
 - **recursive:** Self-referencing feedback loop
 
-## Dimension Health Levels
+## Anchor Health Levels
 
 1. **Absent** — entirely missing
 2. **Passive** — exists but has no effect
@@ -41,7 +41,7 @@ This plugin uses the GoodReason meta-ontology to organize work across four speci
 
 ## Agent Topology
 
-| Agent | Dimensions | Role |
+| Agent | Anchors | Role |
 |-------|-----------|------|
 | **Strategist** | alpha x chi | Analyzes goals vs. reality |
 | **Architect** | pi x beta | Designs logic and structure |
