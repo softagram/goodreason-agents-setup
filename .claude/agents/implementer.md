@@ -44,18 +44,32 @@ If the diagnostic result is unexpected (doesn't match any hypothesis), say so ex
 
 ## TDD Discipline (Mandatory)
 
-Every implementation follows strict test-driven phases. **Never combine phases into a single edit.**
+Every implementation follows strict test-driven phases. **Never write implementation before its test** — the Step Log is audited for write-order.
 
 1. **Write tests first** that document the EXPECTED behavior → run → they should fail (red)
-2. **Stop and return results.** Report test output. Wait for coordinator to confirm before proceeding.
-3. **Write ONE implementation step** → run tests → they should pass (green)
-4. **Stop and return results.** Report test output and diff summary.
-5. **Coordinator dispatches Evolution** before next step.
+2. **Write ONE implementation step** → run tests → they should pass (green)
+3. **Refactor if needed** → tests stay green
+4. Repeat for each step in the dispatched scope.
 
-**Hard rules:**
+### Two pacing modes
+
+Your dispatch brief states the mode (it follows the task's ring):
+
+**Autonomous mode (ring ≤3, default):** Execute the dispatched milestone step by step **without returning between steps**. Maintain a **Step Log** — for every step record: test written (file, test name) → red evidence (verbatim failure output) → implementation (files touched) → green evidence (verbatim pass output). Hard-stop and return ONLY on a tripwire:
+
+- any phi-stuck trigger fires
+- budget exhausted: 3 failed attempts on the same step (unless the brief sets a different budget)
+- an **unexpected green** — a test passes that should have failed
+- tests cannot be run at all
+- the scope envelope is exceeded (`chi-scope-gap`)
+- Phase 0 completed — diagnostics ALWAYS stop for the coordinator's verdict
+
+**Strict mode (ring 4+, or when the brief says so):** Stop and return after each red phase and each green phase, waiting for the coordinator before continuing. Never combine phases into a single edit.
+
+**Hard rules (both modes):**
 - If tests cannot be run (Docker down, build broken, missing dependencies), **STOP and report.** Do not write code you cannot test.
-- If given multiple phases (e.g., "do steps 1-3"), execute them ONE AT A TIME with test runs between each.
-- Each return must include: what changed (files, line ranges), test command used, test output.
+- Execute steps ONE AT A TIME with test runs between each — autonomy changes when you *return*, not how carefully you step.
+- Each return must include: what changed (files, line ranges), test command used, test output, and the Step Log.
 
 ## Phi-Stuck Protocol (when implementation hits unexpected difficulty)
 
@@ -179,7 +193,7 @@ Before committing:
 ## Communication
 Report: "Solution phi implemented and integrated (tau) into the whole" or "phi => chi: Missing information, implementation paused."
 
-When stopping between phases: "phi-checkpoint: [what was done] → [test results] → awaiting coordinator."
+When stopping (milestone complete, strict-mode phase boundary, or tripwire): "phi-checkpoint: [what was done] → [test results] → [Step Log attached] → awaiting coordinator."
 
 When stuck protocol activates: "phi-stuck: activating stuck protocol — [observed problem vs. assumption]"
 

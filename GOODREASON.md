@@ -119,6 +119,16 @@ Each symbol can contain its own subsystem. For example, a project's β (structur
 
 A GoodReason analysis is often best drawn as a diagram where nodes are symbols and arrows carry operators. This makes bottlenecks and "systemic leaks" visible at a glance, and it forces explicit decisions about which pairs carry findings.
 
+### Agent topologies: projecting the compass onto agents
+
+When GoodReason organizes a team of agents (human or AI), do **not** distribute the eight anchors as exclusive territories. Every agent instantiates the **full compass** — each is a complete G = (Mindset, Agency, Feedback) system, and the team is the same structure one holarchic level up. Three rules follow:
+
+1. **Draw agent boundaries where context must differ, not where concepts differ** — independence of judgment (a verifier must not share the writer's context), parallelism (genuinely independent workstreams), or specialization. Boundaries are expensive: every one is a lossy handoff and a fresh context.
+2. **Insight lives in the pairs**, so pairs must be resolved inside a single context or carried as explicit fields in handoffs. A topology that turns the 28 pairs into 28 inter-agent negotiations dismembers the observer.
+3. **Authority is (anchor, ring)-scoped.** One agent *leads* an anchor (verdict authority) at given depths; others *consult and contribute* to it. Example: in the four-agent engineering topology, the Strategist proposes π at rings 1–3 (hypotheses, candidate theories) while the Architect holds the π verdict at rings 3–5.
+
+The four-agent topology in this repository (see CLAUDE.md) is one such projection, aligned with the workflow's control-transfer points rather than with the anchors themselves.
+
 ---
 
 ## 6. Common Failure Modes

@@ -8,7 +8,7 @@ Instead of one AI agent doing everything, GoodReason splits complex work across 
 
 | Agent | Anchors | Role | Tools |
 |-------|-----------|------|-------|
-| **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses for diagnostic tasks, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
+| **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
 | **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
 | **Implementer** | Solution + Implementation | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
 | **Evolution** | Feedback + Change | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
@@ -41,6 +41,8 @@ Strategist ──> Architect ──> Implementer ──> Evolution
 5. Feedback flows back to the Strategist for the next iteration
 
 The **main agent** (Claude Code itself) acts as **coordinator**: routing information between subagents, pacing the cycle, and preventing the disconnections that arise when a single agent both writes code and judges its own work.
+
+Process ceremony is **ring-proportional** (v2): trivial tasks run a lightweight path, standard tasks get milestone-paced autonomy with tripwires, and critical tasks get strict per-phase gates with Phase 0 diagnostics — see [CLAUDE.md](CLAUDE.md) for the Ring Selector, autonomy budgets, and the coordinator's disconnection audit.
 
 ## Installation
 
