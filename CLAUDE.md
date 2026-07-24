@@ -15,7 +15,7 @@ To apply the topology to non-software work, keep the control plane and re-bind t
 
 Use the sub-agents defined in `.claude/agents/`:
 
-1. **Strategist (alpha x chi):** When analysis of goals or current state is needed. Leads alpha and chi; owns SOI → MOI and delta-psi intake; *proposes* theory (hypotheses; theory shortlist at ring 3+).
+1. **Strategist (alpha x chi):** When analysis of goals or current state is needed. Leads alpha and chi; owns the SOI framing (why it matters, to whom) and delta-psi intake; *proposes* theory (hypotheses; theory shortlist at ring 3+).
 2. **Architect (pi x beta):** When designing logic or structure. Holds the pi verdict (adopts/adapts/refutes proposed theories); the phased plan is beta applied to the work itself.
 3. **Implementer (phi x tau):** When shaping (phi) and realizing (tau) code.
 4. **Evolution (omega x delta-psi):** When verifying quality and assessing change pressure. Never merged with the writer.
@@ -24,7 +24,7 @@ Every agent holds the full compass; the pairs above define **verdict authority**
 
 ## Workflow Protocol (Cycle)
 
-1. **Intake (coordinator):** State SOI → MOI (what system, why it matters, to whom) and classify the ring.
+1. **Intake (coordinator):** Frame the SOI (what system, why it matters, to whom) and classify the ring.
 2. **Analysis (Strategist):** Situation assessment + delta-psi intake + hypotheses (diagnostic) or theory shortlist (ring 3+). May produce alpha-x-chi diagrams.
 3. **Design (Architect):** Theory verdicts + phased plan with milestones, scope envelopes and autonomy budgets. May produce pi-x-beta diagrams.
 4. **Implementation (Implementer):** Milestone-sized dispatches with step autonomy (ring ≤3) or strict phasing (ring 4+).
@@ -80,9 +80,9 @@ When the task involves diagnosing a problem (bug, unexpected behavior, unclear f
 
 At each control transfer, check the load-bearing pairs — one sentence of reasoning each. If a check fails, return the handoff to the owning agent, naming the pair. The gates deliberately cover the compass's opposition diameters — alpha–omega and chi–phi at Gate C, delta-psi–beta at Gate B — while the fourth diameter, pi–tau, runs as a standing channel (the Implementer's plan-wrong escalation and the diagram–code checks). See GOODREASON.md → "Agent topologies".
 
-- **Gate A — Strategist → Architect:** *alpha x pi* — does the proposed theory/hypothesis set serve the MOI? *chi x pi* — do the verified facts actually support it?
+- **Gate A — Strategist → Architect:** *alpha x pi* — does the proposed theory/hypothesis set serve the SOI framing? *chi x pi* — do the verified facts actually support it?
 - **Gate B — Architect → Implementer:** *delta-psi x beta* — will the planned structure survive the pressure that motivated the task? *phi x tau* — are integration points concrete enough to realize without guessing?
-- **Gate C — Evolution → close:** *omega x alpha* — does the verdict trace back to the MOI? Did we solve the thing that mattered, not merely pass tests? *chi x phi* — does the realized solution meet observed reality (real inputs, real environment), not only the plan?
+- **Gate C — Evolution → close:** *omega x alpha* — does the verdict trace back to the SOI framing? Did we solve the thing that mattered, not merely pass tests? *chi x phi* — does the realized solution meet observed reality (real inputs, real environment), not only the plan?
 
 ### Pacing Rules — ring ≤3 (autonomy with tripwires)
 
@@ -163,7 +163,7 @@ The dispatched instance is a *fresh* invocation of the same role — not the ori
 
 Each agent must return an explicit handoff message so the coordinator can audit the chain and the next agent can pick up without guessing:
 
-- **Strategist → Architect:** MOI (why this matters, to whom) + delta-psi intake (what pressure created the task) + target + context + build/test status + hypotheses with falsification criteria (diagnostic tasks) + **theory shortlist** (ring 3+: applicable external theories / prior art / failure patterns, each tagged for alpha-relevance and chi-consistency) + any diagrams (mermaid source + filename + placement)
+- **Strategist → Architect:** SOI framing (why this matters, to whom) + delta-psi intake (what pressure created the task) + target + context + build/test status + hypotheses with falsification criteria (diagnostic tasks) + **theory shortlist** (ring 3+: applicable external theories / prior art / failure patterns, each tagged for alpha-relevance and chi-consistency) + any diagrams (mermaid source + filename + placement)
 - **Architect → Implementer:** phased plan with **milestone boundaries, scope envelopes and autonomy budgets** + **theory verdicts** (each proposed item adopted / adapted / refuted, with a one-line reason) + Phase 0 as a diagnostic experiment when hypotheses exist + test plan + any diagrams (mermaid source + filename + placement)
 - **Implementer → coordinator (after Phase 0):** raw diagnostic result + which hypothesis was confirmed or refuted
 - **Implementer → Evolution:** what changed + diff summary + **Step Log** (per step: test written → red evidence → implementation → green evidence) + tripwire events + test output + diagnostic result if applicable

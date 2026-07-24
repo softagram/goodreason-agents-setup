@@ -38,7 +38,7 @@ Resist the habit of collapsing each symbol into a single keyword. The richness o
 
 ### The compass as a question structure
 
-After the SOI → MOI transition (see Usage Methods), the compass provides the basic interpretive grid. The eight anchors do not represent separate disciplines — they are foundational roles through which the system is interpreted, and each can be asked as a question:
+Once the SOI has been named and framed (see Usage Methods), the compass provides the basic interpretive grid. The eight anchors do not represent separate disciplines — they are foundational roles through which the system is interpreted, and each can be asked as a question:
 
 - **α** asks what gives the system purpose, identity or direction.
 - **π** asks which theory, principle or justification frames the interpretation.
@@ -122,7 +122,7 @@ A system can have every symbol nominally "present" and still fail badly if sever
 
 ### Systematic analysis (the 28-pair walk)
 
-1. **Name the SOI, then state the MOI.** The **System of Interest (SOI)** is the raw target — what is being analyzed — and sits at the origin of the compass. The **MOI** is what the SOI becomes once you commit to an interpretation: why this system matters, to whom, and under which constraints. Every later judgment traces back to this SOI → MOI statement.
+1. **Name and frame the SOI.** The **System of Interest (SOI)** is the raw target — what is being analyzed — and sits at the origin of the compass. Framing it means committing to an interpretation: why this system matters, to whom, and under which constraints. Every later judgment traces back to this framing.
 2. **Fill in each of the 8 symbols** for this system. What is its α? Its χ? Its current Δψ? Be specific. "chi-gap" ("this is not yet verified") is a legitimate answer and more useful than a fabricated one.
 3. **Assess each symbol's status** (Absent / Passive / Distorted / Active).
 4. **Walk all 28 pairs deliberately.** For each pair, name the operator and describe the relationship. Flag any interference, disconnection, or domination.
@@ -151,7 +151,7 @@ The four-agent topology in this repository (see CLAUDE.md) is one such projectio
 
 | Diameter | Tension | Where the channel lives |
 | --- | --- | --- |
-| α–Ω | Did we solve what mattered? | Gate C: Evolution's verdict traced back to the MOI |
+| α–Ω | Did we solve what mattered? | Gate C: Evolution's verdict traced back to the SOI framing |
 | χ–φ | Does the solution meet reality? | Implementer's fact production (phi => chi) back to the Strategist; Gate C reality check |
 | π–τ | Does the model match practice? | Implementer's plan-wrong escalation to the Architect; diagram–code consistency checks |
 | Δψ–β | Will structure survive the pressure? | Evolution's change-pressure escalation to the Architect; Gate B |

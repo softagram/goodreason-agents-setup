@@ -10,7 +10,7 @@ Execute the GoodReason workflow on the following task: "$ARGUMENTS"
 This cycle pauses for human approval before any code is written. It is the default flow for ring-5 tasks and available at any ring on request.
 
 ## Phase 0: Intake (coordinator)
-- State SOI → MOI: what system is selected, why it matters, to whom
+- Frame the SOI: what system is selected, why it matters, to whom
 - Classify the task's ring (1–5) per CLAUDE.md's Ring Selector and state the ring in every dispatch brief
 
 ## Phase 1: Analysis (Strategist)
@@ -34,7 +34,7 @@ Use the **Architect** agent with the Strategist's analysis to:
 
 After Phase 2 completes, you MUST stop and present the user with a concise summary:
 
-1. **Goal and MOI** — what we're solving and why it matters (from Strategist)
+1. **Goal and framing** — what we're solving and why it matters (from Strategist)
 2. **Ring** — the task's classified depth and what process that implies
 3. **Key findings** — relevant facts, constraints, or conflicts discovered
 4. **Theory verdicts** — which proposed theories the Architect adopted or refuted, and why

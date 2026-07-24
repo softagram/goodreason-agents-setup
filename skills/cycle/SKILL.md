@@ -10,7 +10,7 @@ Execute the full four-phase GoodReason workflow on the following task: "$ARGUMEN
 Follow this cycle strictly:
 
 ## Phase 0: Intake (coordinator)
-- State SOI → MOI: what system is selected, why it matters, to whom
+- Frame the SOI: what system is selected, why it matters, to whom
 - Classify the task's ring (1–5) per CLAUDE.md's Ring Selector and state the ring in every dispatch brief
 - Ring 1–2 → lightweight path (Strategist+Architect combined into one dispatch; Evolution still mandatory)
 
@@ -22,7 +22,7 @@ Use the **Strategist** agent to:
 - Ring 3+: produce a theory shortlist (applicable external theories / prior art / failure patterns, tagged for alpha-relevance and chi-consistency)
 - Identify any alpha/chi interference (goal conflicts with reality)
 
-**Gate A (coordinator):** check alpha x pi (does the proposed theory serve the MOI?) and chi x pi (do the facts support it?) before passing to the Architect.
+**Gate A (coordinator):** check alpha x pi (does the proposed theory serve the SOI framing?) and chi x pi (do the facts support it?) before passing to the Architect.
 
 ## Phase 2: Design (Architect)
 Use the **Architect** agent with the Strategist's analysis to:
