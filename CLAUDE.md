@@ -2,6 +2,15 @@
 
 This project uses the GoodReason meta-ontology for managing software engineering tasks. Process ceremony scales with the task's **ring** (interpretation depth) — see the Ring Selector below.
 
+## Two Layers: Control Plane and Domain Binding
+
+This document mixes two layers, and they age differently:
+
+- **Control plane (domain-neutral):** the Ring Selector, verdict authority, the Disconnection Audit gates, the handoff contract, milestones with autonomy budgets, the Step Log, and Evolution as an independent verifier. These follow from the ontology and apply to any productive work — software, research, operations, writing.
+- **Software binding (this repository's default):** TDD phasing, Gate 0 build/test pre-checks, probe tests, diff-based verification. These instantiate the control plane for software engineering.
+
+To apply the topology to non-software work, keep the control plane and re-bind the software terms. The mapping is usually direct: red-before-green becomes *prediction before observation* (preregistration discipline), a probe test becomes a pilot experiment or a source check, "the build is green" becomes "the material is accessible and the method runs", and Evolution's "does the fix work for the right reasons" becomes an internal-validity check.
+
 ## Agents
 
 Use the sub-agents defined in `.claude/agents/`:
@@ -69,11 +78,11 @@ When the task involves diagnosing a problem (bug, unexpected behavior, unclear f
 
 ### Disconnection Audit (at every gate)
 
-At each control transfer, check the load-bearing pairs — one sentence of reasoning each. If a check fails, return the handoff to the owning agent, naming the pair.
+At each control transfer, check the load-bearing pairs — one sentence of reasoning each. If a check fails, return the handoff to the owning agent, naming the pair. The gates deliberately cover the compass's opposition diameters — alpha–omega and chi–phi at Gate C, delta-psi–beta at Gate B — while the fourth diameter, pi–tau, runs as a standing channel (the Implementer's plan-wrong escalation and the diagram–code checks). See GOODREASON.md → "Agent topologies".
 
 - **Gate A — Strategist → Architect:** *alpha x pi* — does the proposed theory/hypothesis set serve the MOI? *chi x pi* — do the verified facts actually support it?
 - **Gate B — Architect → Implementer:** *delta-psi x beta* — will the planned structure survive the pressure that motivated the task? *phi x tau* — are integration points concrete enough to realize without guessing?
-- **Gate C — Evolution → close:** *omega x alpha* — does the verdict trace back to the MOI? Did we solve the thing that mattered, not merely pass tests?
+- **Gate C — Evolution → close:** *omega x alpha* — does the verdict trace back to the MOI? Did we solve the thing that mattered, not merely pass tests? *chi x phi* — does the realized solution meet observed reality (real inputs, real environment), not only the plan?
 
 ### Pacing Rules — ring ≤3 (autonomy with tripwires)
 

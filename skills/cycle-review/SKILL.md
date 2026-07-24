@@ -60,6 +60,6 @@ Use the **Evolution** agent at each milestone and pre-commit (ring ≤3) or afte
 - Check harmony with original purpose (omega ~ alpha)
 - Identify any change pressure (delta-psi) for future iterations
 
-**Gate C (coordinator):** check omega x alpha — did we solve the thing that mattered?
+**Gate C (coordinator):** check omega x alpha (did we solve the thing that mattered?) and chi x phi (does the realized solution meet observed reality?).
 
 After all phases, summarize the cycle results and any remaining delta-psi (change pressure) for the next iteration.

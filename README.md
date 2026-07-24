@@ -8,10 +8,10 @@ Instead of one AI agent doing everything, GoodReason splits complex work across 
 
 | Agent | Anchors | Role | Tools |
 |-------|-----------|------|-------|
-| **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
+| **Strategist** | Purpose + Context | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
 | **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
 | **Implementer** | Solution + Implementation | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
-| **Evolution** | Feedback + Transformation | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
+| **Evolution** | Feedback + Change Pressure | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
 
 > `SendMessage` lets the agents talk to each other directly in **team mode**. It is only active when Claude Code's experimental Agent Teams feature is enabled (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`); without that flag it is simply inert and the agents work exactly as they always have.
 
@@ -145,7 +145,7 @@ If you change an agent definition, edit one copy and mirror it to the other. The
 
 ## Background
 
-GoodReason is a meta-ontology based on systems thinking. It interprets any system through eight semantic anchors (purpose, theory, information, transformation, feedback, implementation, solution, structure) and provides operators to describe their relationships (resonance, disconnection, interference, bridge, priority, transition, harmony, recursive feedback).
+GoodReason is a meta-ontology based on systems thinking. It interprets any system through eight semantic anchors (purpose, theory, context, change pressure, feedback, implementation, solution, structure) and provides operators to describe their relationships (resonance, disconnection, interference, bridge, priority, transition, harmony, recursive feedback).
 
 This agent topology pairs those eight anchors into four complementary pairs, one per agent. See [GOODREASON.md](GOODREASON.md) for the complete framework.
 
