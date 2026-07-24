@@ -14,11 +14,15 @@ This plugin uses the GoodReason meta-ontology to organize work across four speci
 | alpha | **Purpose** | Values, aspirations, goals, vision | North (N) |
 | pi | **Theory** | Models, logic, concepts, abstractions | Northwest (NW) |
 | chi | **Information** | Environment, data, observations, facts | West (W) |
-| delta-psi | **Change** | Change pressure, transformation, evolution | Southwest (SW) |
+| delta-psi | **Transformation** | Change pressure, transformation, evolution | Southwest (SW) |
 | omega | **Feedback** | Monitoring, effects, goal-orientation | South (S) |
 | tau | **Implementation** | Implementation, practice, integration | Southeast (SE) |
 | phi | **Solution** | Solution, design, interface | East (E) |
 | beta | **Structure** | Architecture, organization, hierarchy | Northeast (NE) |
+
+## The 28 Pairwise Relationships
+
+With 8 anchors there are exactly C(8,2) = 28 unique pairs. The core analytical discipline is to walk all 28 deliberately, asking "how does X relate to Y here?" and labeling each with an operator — insight lives in the relationships, not in the anchors alone. Escalate to triads (C(8,3) = 56) only when a pair cannot express a finding. See GOODREASON.md for the full pair list, worked examples, and common failure modes.
 
 ## Relational Operators
 

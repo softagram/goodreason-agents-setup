@@ -6,7 +6,7 @@ This project uses the GoodReason meta-ontology for managing software engineering
 
 Use the sub-agents defined in `.claude/agents/`:
 
-1. **Strategist (alpha x chi):** When analysis of goals or current state is needed. Leads alpha and chi; owns SOI → MOI and delta-psi intake; *proposes* theory at rings 1–3 (hypotheses, theory shortlist).
+1. **Strategist (alpha x chi):** When analysis of goals or current state is needed. Leads alpha and chi; owns SOI → MOI and delta-psi intake; *proposes* theory (hypotheses; theory shortlist at ring 3+).
 2. **Architect (pi x beta):** When designing logic or structure. Holds the pi verdict (adopts/adapts/refutes proposed theories); the phased plan is beta applied to the work itself.
 3. **Implementer (phi x tau):** When shaping (phi) and realizing (tau) code.
 4. **Evolution (omega x delta-psi):** When verifying quality and assessing change pressure. Never merged with the writer.
@@ -20,6 +20,8 @@ Every agent holds the full compass; the pairs above define **verdict authority**
 3. **Design (Architect):** Theory verdicts + phased plan with milestones, scope envelopes and autonomy budgets. May produce pi-x-beta diagrams.
 4. **Implementation (Implementer):** Milestone-sized dispatches with step autonomy (ring ≤3) or strict phasing (ring 4+).
 5. **Verification (Evolution):** At milestone boundaries and pre-commit (ring ≤3) or after each phase (ring 4+); verifies any diagrams still match the implemented code.
+
+The cycle is deliberately **Strategist-first**: whatever the task's strongest signal (an incident, an idea, an anomaly, external pressure), entry goes through the alpha-x-chi pass first. The ontology does not force an order — this binding does, as a safety property that is worth its token cost.
 
 The main agent's job is to coordinate information flow, run the **Disconnection Audit** at each gate, and ensure no **Disconnections** occur.
 

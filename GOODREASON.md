@@ -104,7 +104,7 @@ A system can have every symbol nominally "present" and still fail badly if sever
 
 ### Systematic analysis (the 28-pair walk)
 
-1. **Name the system of interest** clearly — what is being analyzed?
+1. **Name the SOI, then state the MOI.** The **System of Interest (SOI)** is the raw target — what is being analyzed — and sits at the origin of the compass. The **MOI** is what the SOI becomes once you commit to an interpretation: why this system matters, to whom, and under which constraints. Every later judgment traces back to this SOI → MOI statement.
 2. **Fill in each of the 8 symbols** for this system. What is its α? Its χ? Its current Δψ? Be specific. "chi-gap" ("this is not yet verified") is a legitimate answer and more useful than a fabricated one.
 3. **Assess each symbol's status** (Absent / Passive / Distorted / Active).
 4. **Walk all 28 pairs deliberately.** For each pair, name the operator and describe the relationship. Flag any interference, disconnection, or domination.
@@ -125,7 +125,7 @@ When GoodReason organizes a team of agents (human or AI), do **not** distribute 
 
 1. **Draw agent boundaries where context must differ, not where concepts differ** — independence of judgment (a verifier must not share the writer's context), parallelism (genuinely independent workstreams), or specialization. Boundaries are expensive: every one is a lossy handoff and a fresh context.
 2. **Insight lives in the pairs**, so pairs must be resolved inside a single context or carried as explicit fields in handoffs. A topology that turns the 28 pairs into 28 inter-agent negotiations dismembers the observer.
-3. **Authority is (anchor, ring)-scoped.** One agent *leads* an anchor (verdict authority) at given depths; others *consult and contribute* to it. Example: in the four-agent engineering topology, the Strategist proposes π at rings 1–3 (hypotheses, candidate theories) while the Architect holds the π verdict at rings 3–5.
+3. **Authority is (anchor, ring)-scoped.** One agent *leads* an anchor (verdict authority) at a given process depth; others *consult and contribute* to it. (*Rings* — the 1–5 process-depth tiers — belong to the workflow binding, not to the ontology; see CLAUDE.md's Ring Selector.) Example: in the four-agent engineering topology, the Strategist *proposes* π — hypotheses and candidate theories — while the Architect holds the π *verdict*; at rings 1–2 the two roles merge into a single dispatch.
 
 The four-agent topology in this repository (see CLAUDE.md) is one such projection, aligned with the workflow's control-transfer points rather than with the anchors themselves.
 
