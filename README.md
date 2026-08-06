@@ -1,30 +1,30 @@
 # GoodReason Agent Topology for Claude Code
 
-A systems-thinking framework that organizes [Claude Code](https://docs.anthropic.com/en/docs/claude-code) custom agents into four specialized roles with strict boundaries and coordinated workflows.
+A systems-thinking framework that organizes [Claude Code](https://docs.anthropic.com/en/docs/claude-code) custom agents into four specialized roles with scoped verdict authority and coordinated workflows.
 
 ## What Is This?
 
-Instead of one AI agent doing everything, GoodReason splits complex work across four subagents — each governing a specific dimension of the problem:
+Instead of one AI agent doing everything, GoodReason splits complex work across four subagents — each governing a complementary pair of the meta-ontology's eight semantic anchors:
 
-| Agent | Dimension | Role | Tools |
+| Agent | Anchors | Role | Tools |
 |-------|-----------|------|-------|
-| **Strategist** | Purpose + Information | Verifies build/test foundations, generates competing hypotheses for diagnostic tasks, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
+| **Strategist** | Purpose + Context | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
 | **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
-| **Implementer** | Action + Integration | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
-| **Evolution** | Feedback + Change | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
+| **Implementer** | Solution + Implementation | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
+| **Evolution** | Feedback + Change Pressure | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
 
 > `SendMessage` lets the agents talk to each other directly in **team mode**. It is only active when Claude Code's experimental Agent Teams feature is enabled (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`); without that flag it is simply inert and the agents work exactly as they always have.
 
 ## Why Separate Agents?
 
-Single-agent development blurs roles. The agent that writes code also evaluates it, which produces blind spots. GoodReason enforces separation of concerns:
+Single-agent development blurs roles. The agent that writes code also evaluates it, which produces blind spots. GoodReason scopes **verdict authority**: every agent thinks with the full eight-anchor compass, but each anchor has one agent with the final say — and write access follows the role:
 
-- **Strategist** cannot write code — only validate goals and gather facts
-- **Architect** cannot write code — only design structure and diagnostic experiments
-- **Implementer** cannot assess quality — only build
-- **Evolution** cannot fix code — only identify what is broken and why
+- **Strategist** has no write access — leads purpose and information (alpha, chi): validates goals against verified facts and proposes hypotheses and theories
+- **Architect** has no write access — holds the theory verdict (pi) and designs structure (beta)
+- **Implementer** writes the code (phi, tau) — but holds no quality verdict over its own work
+- **Evolution** never fixes code — holds the feedback verdict (omega) and names change pressure (delta-psi)
 
-This mirrors real engineering teams where architects don't code and QA doesn't design.
+The pairs define who *decides*, not who may think about what. Cross-anchor tensions are reported to the anchor's lead agent rather than silently resolved — and the agent that writes code never judges its own work.
 
 ## The Workflow Cycle
 
@@ -41,6 +41,8 @@ Strategist ──> Architect ──> Implementer ──> Evolution
 5. Feedback flows back to the Strategist for the next iteration
 
 The **main agent** (Claude Code itself) acts as **coordinator**: routing information between subagents, pacing the cycle, and preventing the disconnections that arise when a single agent both writes code and judges its own work.
+
+Process ceremony is **ring-proportional** (v2): trivial tasks run a lightweight path, standard tasks get milestone-paced autonomy with tripwires, and critical tasks get strict per-phase gates with Phase 0 diagnostics — see [CLAUDE.md](CLAUDE.md) for the Ring Selector, autonomy budgets, and the coordinator's disconnection audit.
 
 ## Installation
 
@@ -124,7 +126,7 @@ Put project-specific context in your project's `CLAUDE.md`. The subagents inheri
 
 ### Extending the topology
 
-The full meta-ontology has eight dimensions, not four. You can add more subagents following the remaining pairs. See [GOODREASON.md](GOODREASON.md) for the 28 pairwise relationships and dimension health model.
+The four agents cover all eight semantic anchors as four complementary pairs — but the meta-ontology defines 28 pairwise relationships, and you can add subagents for other pairs. See [GOODREASON.md](GOODREASON.md) for the 28 pairwise relationships and anchor health model.
 
 ## Contributing
 
@@ -143,9 +145,9 @@ If you change an agent definition, edit one copy and mirror it to the other. The
 
 ## Background
 
-GoodReason is a meta-ontology based on systems thinking. It divides any system into eight fundamental dimensions (purpose, theory, information, change, feedback, integration, action, structure) and provides operators to describe their relationships (resonance, disconnection, interference, bridge, priority, transition, harmony, recursive feedback).
+GoodReason is a meta-ontology based on systems thinking. It interprets any system through eight semantic anchors (purpose, theory, context, change pressure, feedback, implementation, solution, structure) and provides operators to describe their relationships (resonance, disconnection, interference, bridge, priority, transition, harmony, recursive feedback).
 
-This agent topology uses four of those dimensions, paired into two complementary pairs per agent. See [GOODREASON.md](GOODREASON.md) for the complete framework.
+This agent topology pairs those eight anchors into four complementary pairs, one per agent. See [GOODREASON.md](GOODREASON.md) for the complete framework.
 
 ## Battle-Tested
 

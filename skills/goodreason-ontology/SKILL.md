@@ -1,24 +1,30 @@
 ---
 name: goodreason-ontology
-description: GoodReason meta-ontology reference for systems thinking. Use when analyzing complex systems, coordinating agents, or applying the GoodReason framework dimensions and operators.
+description: GoodReason meta-ontology reference for systems thinking. Use when analyzing complex systems, coordinating agents, or applying the GoodReason framework anchors and operators.
 ---
 
 # GoodReason Meta-ontology Reference
 
 This plugin uses the GoodReason meta-ontology to organize work across four specialized agents.
 
-## Eight Dimensions (Compass Points)
+## Eight Semantic Anchors (Compass Points)
 
-| Symbol | Name | Meaning |
-| --- | --- | --- |
-| alpha | **Purpose** | Values, aspirations, goals, vision |
-| pi | **Theory** | Models, logic, concepts, abstractions |
-| chi | **Information** | Environment, data, observations, facts |
-| delta-psi | **Change** | Change pressure, transformation, evolution |
-| omega | **Feedback** | Monitoring, effects, goal-orientation |
-| tau | **Integration** | Connections, interfaces, coherence |
-| phi | **Action** | Implementation, solution, intervention |
-| beta | **Structure** | Architecture, organization, hierarchy |
+| Symbol | Name | Meaning | Position |
+| --- | --- | --- | --- |
+| alpha | **Purpose** | Purpose, mindset, identity — goals, values, vision | North (N) |
+| pi | **Theory** | Theory, reasoning, justification — models, logic, abstractions | Northwest (NW) |
+| chi | **Context** | Context, input, model, connection to reality — facts, observations | West (W) |
+| delta-psi | **Change Pressure** | Change pressure, anomaly, transformation — evolution, renewal | Southwest (SW) |
+| omega | **Feedback** | Feedback, learning, reflection — monitoring, effects, goal-orientation | South (S) |
+| tau | **Implementation** | Implementation, practice, integration | Southeast (SE) |
+| phi | **Solution** | Solution, design, interface | East (E) |
+| beta | **Structure** | Structure, agency, organization — architecture, hierarchy | Northeast (NE) |
+
+Each anchor can be asked as a question: alpha — what gives the system purpose, identity or direction? pi — which theory or justification frames the interpretation? chi — what context, input or connection to reality must be considered? delta-psi — where does pressure, anomaly or transformation appear? beta — which structure or agency carries responsibility? phi — what solution, design or interface becomes possible? tau — how is it implemented, integrated or acted upon? omega — how do feedback, learning and reflection close the inquiry?
+
+## The 28 Pairwise Relationships
+
+With 8 anchors there are exactly C(8,2) = 28 unique pairs. The core analytical discipline is to walk all 28 deliberately, asking "how does X relate to Y here?" and labeling each with an operator — insight lives in the relationships, not in the anchors alone. Escalate to triads (C(8,3) = 56) only when a pair cannot express a finding. See GOODREASON.md for the full pair list, worked examples, and common failure modes.
 
 ## Relational Operators
 
@@ -32,7 +38,7 @@ This plugin uses the GoodReason meta-ontology to organize work across four speci
 - **harmony:** Balanced reciprocal state
 - **recursive:** Self-referencing feedback loop
 
-## Dimension Health Levels
+## Anchor Health Levels
 
 1. **Absent** — entirely missing
 2. **Passive** — exists but has no effect
@@ -41,7 +47,7 @@ This plugin uses the GoodReason meta-ontology to organize work across four speci
 
 ## Agent Topology
 
-| Agent | Dimensions | Role |
+| Agent | Anchors | Role |
 |-------|-----------|------|
 | **Strategist** | alpha x chi | Analyzes goals vs. reality |
 | **Architect** | pi x beta | Designs logic and structure |
