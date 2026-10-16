@@ -5,6 +5,20 @@ It exists because the coordinator retyping these rules from memory drops one eac
 2026-09-23 four-defect run the `git stash` ban and the line-length limit were both missing from
 the first Implementer prompt and had to be added in the second.
 
+## Coordinator preparation
+
+Both `cycle` and `cycle-review` use this preparation before the first dispatch:
+
+- Create the worktree (`~/worktrees/<branch>/`, never `/tmp`) with its venv or toolchain, and declare
+  the main checkout read-only.
+- Measure the baseline as *command + branch + count*, and identify the repo's lint config and limits.
+  For changes with no runtime output, name the applicable acceptance check in the brief.
+- Name a scratch directory per agent.
+- Decide the coding budget: an Evolution nit of at most ten lines may be applied by the coordinator,
+  with a test run; everything else returns to the Implementer.
+
+## Shared dispatch block
+
 Fill the `<…>` slots. Delete nothing; if a rule does not apply, say so in the slot.
 
 ```
@@ -50,8 +64,10 @@ Append the matching block after the shared block.
 
 ```
 ## Gate 0
-1. Confirm the baseline above for the areas you touch. If you share the worktree with siblings, run tests
-   with `-p no:cacheprovider`. A failure that passes when re-run alone stays an observation; record
+1. Confirm the baseline above for the areas you touch. If you share the worktree with siblings, identify
+   the test runner first: for pytest, disable its cache provider with `-p no:cacheprovider`; for other
+   runners, use their supported isolation options. If shared mutable state cannot be isolated,
+   coordinate serial runs. A failure that passes when re-run alone stays an observation; record
    "contention" as one hypothesis beside order dependence and a real timing bug, and close it only
    after controlled re-runs (same set, alone, and on the base) agree.
 2. Verify every code claim in the input (report, ticket, prior handoff) against the code with file:line.
@@ -88,10 +104,11 @@ Append the matching block after the shared block.
 
 ```
 ## Per phase (report evidence for each)
-1. Characterization tests → run → GREEN, with the count.
+1. Planned characterization tests → run on base → GREEN, with their purpose, command, output and count.
 2. Regression tests → run → RED, quoting the failing assertion. A test the plan labelled as a guard is
-   expected green on base; say so and continue. A test the plan expected red that is green on base is
-   an unexpected green: a tripwire. Stop, report what the test executed and asserted, and wait. It may
+   expected green on base; record its label, purpose and baseline command/output, then continue.
+   A test the plan expected red that is green on base is an unexpected green: a tripwire.
+   Stop, report what the test executed and asserted, and wait. It may
    be a wrong fixture, a wrong call path or a weak assertion, and renaming it a guard settles none of those.
 3. Fix → run → GREEN; then the full sets from the contract.
 4. Mutation-check your own guards before handoff: remove each clause on a copy, name the test that fails,
@@ -106,8 +123,10 @@ Do not combine steps into one edit.
 ```
 ## Assess
 1. Right fix for the right reason: does the mechanism match what the Strategist measured?
-2. Tests: on a scratch copy with only the tests applied, which are red? Mutate each guard; report the
-   mutations no test catches as required tests for the next phase.
+2. Tests: on a scratch copy of the base with only the tests applied, regression tests must be red;
+   planned guards and characterization tests must be green, with their purpose and baseline
+   command/output recorded. An unexpectedly green regression test is a tripwire, not a guard to relabel.
+   Mutate each guard; report the mutations no test catches as required tests for the next phase.
 3. Disconnections between goal, plan, code and claims. Verify every "passed" claim from its command and
    output; a claim without output is unverified.
 4. Side effects, not only behaviour: new log lines, import-time prints, new warnings, changed exit codes,

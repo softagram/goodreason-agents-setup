@@ -232,7 +232,9 @@ Use symbols in reporting: "Detected alpha x chi resonance" or "Warning: chi inte
   overclaim; the fixture reproduced two, and the third needed a second consumer in another repo.
   The Architect inherited the wrong count. Under-claim and list the gap.
 - **Sibling agents in one worktree contend.** One test flaked only while four Strategists shared the
-  tree. Run tests with `-p no:cacheprovider`, re-run a lone failure alone before calling it a
+  tree. When sharing a worktree, identify the test runner first: for pytest, disable its cache provider
+  with `-p no:cacheprovider`; for other runners, use their supported isolation options. If shared mutable
+  state cannot be isolated, coordinate serial runs. Re-run a lone failure alone before calling it a
   finding, and report the baseline as command + count.
 - **When you find shared ground with a sibling, settle it with the sibling.** Two Strategists found
   the same choke point, exchanged messages, agreed five points, and wrote them as addenda to their

@@ -50,9 +50,9 @@ A fix that passes all tests but works by coincidence is a timebomb. Flag it.
 
 Tests are the specification. Audit them using the Implementer's Step Log:
 
-1. **Write-order:** the log must show each test written and red BEFORE its implementation. Implementation-before-test is a protocol violation — flag it even when the code is correct.
+1. **Write-order:** the log must show tests written and run BEFORE the implementation change they verify. Regression tests must be red on the base. Tests labelled in the plan as guards or characterization tests are expected green on the base; require their label, purpose and baseline command/output instead of red evidence. A regression test unexpectedly green remains a tripwire; relabelling it after the run does not resolve it. Implementation-before-test is a protocol violation — flag it even when the code is correct.
 2. **Spec-shaped, not code-shaped:** would each test fail if the *requirement* were violated, or only if the current implementation changes? Tests asserting incidental implementation details are code-shaped.
-3. **Red for the right reason:** the logged red evidence must show the expected failure (assertion on missing behavior), not a typo, import error, or wrong fixture.
+3. **Red for the right reason:** for regression tests, the logged red evidence must show the expected failure (assertion on missing behavior), not a typo, import error, or wrong fixture. For planned guards and characterization tests, verify that their baseline green matches the purpose recorded in the plan.
 
 Flag findings as `omega-test-quality: [issue — test — evidence]`. A green suite built on code-shaped tests is a false floor — treat it as a halt-level finding when load-bearing behavior is affected.
 

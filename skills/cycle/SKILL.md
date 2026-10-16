@@ -13,12 +13,9 @@ Follow this cycle strictly:
 - Frame the SOI: what system is selected, why it matters, to whom
 - Classify the task's ring (1–5) per CLAUDE.md's Ring Selector and state the ring in every dispatch brief
 - Ring 1–2 → lightweight path (Strategist+Architect combined into one dispatch; Evolution still mandatory)
-- Before the first dispatch, the coordinator itself: creates the worktree (`~/worktrees/<branch>/`,
-  never `/tmp`) with its venv or toolchain and declares the main checkout read-only; measures the
-  baseline as *command + branch + count*; names a scratch directory per agent; decides the coding
-  budget (an Evolution nit of at most ten lines may be applied by the coordinator, with a test run;
-  everything else returns to the Implementer)
-- Every dispatch brief carries the filled-in [dispatch contract](dispatch-contract.md). Do not
+- Before the first dispatch, complete **Coordinator preparation** in the
+  [dispatch contract](dispatch-contract.md)
+- Every dispatch brief carries its filled-in shared block and matching role-specific addition. Do not
   retype its rules from memory; one is dropped every time
 
 ## Phase 1: Analysis (Strategist)

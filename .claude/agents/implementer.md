@@ -46,7 +46,7 @@ If the diagnostic result is unexpected (doesn't match any hypothesis), say so ex
 
 Every implementation follows strict test-driven phases. **Never write implementation before its test** — the Step Log is audited for write-order.
 
-1. **Write tests first** that document the EXPECTED behavior → run → they should fail (red)
+1. **Write tests first** that document the EXPECTED behavior → run → regression tests should fail (red). Tests labelled in the plan as guards or characterization tests should pass on the base; record their label, purpose and baseline command/output instead of red evidence. A regression test unexpectedly green is still a tripwire — do not relabel it after the run to continue.
 2. **Write ONE implementation step** → run tests → they should pass (green)
 3. **Refactor if needed** → tests stay green
 4. Repeat for each step in the dispatched scope.
@@ -55,7 +55,7 @@ Every implementation follows strict test-driven phases. **Never write implementa
 
 Your dispatch brief states the mode (it follows the task's ring):
 
-**Autonomous mode (ring ≤3, default):** Execute the dispatched milestone step by step **without returning between steps**. Maintain a **Step Log** — for every step record: test written (file, test name) → red evidence (verbatim failure output) → implementation (files touched) → green evidence (verbatim pass output). Hard-stop and return ONLY on a tripwire:
+**Autonomous mode (ring ≤3, default):** Execute the dispatched milestone step by step **without returning between steps**. Maintain a **Step Log** — for every step record: test written (file, test name, planned test type and purpose) → baseline command and verbatim output (red for regressions; green for planned guards and characterization tests) → implementation (files touched) → green evidence (verbatim pass output). Hard-stop and return ONLY on a tripwire:
 
 - any phi-stuck trigger fires
 - budget exhausted: 3 failed attempts on the same step (unless the brief sets a different budget)

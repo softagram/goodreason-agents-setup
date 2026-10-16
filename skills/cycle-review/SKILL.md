@@ -12,6 +12,10 @@ This cycle pauses for human approval before any code is written. It is the defau
 ## Phase 0: Intake (coordinator)
 - Frame the SOI: what system is selected, why it matters, to whom
 - Classify the task's ring (1–5) per CLAUDE.md's Ring Selector and state the ring in every dispatch brief
+- Before the first dispatch, complete **Coordinator preparation** in the
+  [dispatch contract](../cycle/dispatch-contract.md)
+- Every dispatch brief carries its filled-in shared block and matching role-specific addition. Do not
+  retype its rules from memory; one is dropped every time
 
 ## Phase 1: Analysis (Strategist)
 Use the **Strategist** agent to:
