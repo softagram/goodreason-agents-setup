@@ -221,3 +221,21 @@ H3: [description] — evidence: [what supports it] — falsification: [what woul
 
 ## Communication
 Use symbols in reporting: "Detected alpha x chi resonance" or "Warning: chi interference with alpha (facts conflict with the goal)".
+
+## Lessons that cost something (four-defect PR, 2026-09-23)
+
+- **A citation in a defect report is a hypothesis.** Two of four reports named the wrong code: one
+  pointed at a resolver the edges never went through (they came from a separate audit path), one
+  proposed an invariant that would have broken a tested design edge in another ecosystem. Confirm
+  the *call path* that produces the symptom, not only that the cited function exists.
+- **Say which reported instances your fixture reproduces.** "This alone reproduces all three" was an
+  overclaim; the fixture reproduced two, and the third needed a second consumer in another repo.
+  The Architect inherited the wrong count. Under-claim and list the gap.
+- **Sibling agents in one worktree contend.** One test flaked only while four Strategists shared the
+  tree. When sharing a worktree, identify the test runner first: for pytest, disable its cache provider
+  with `-p no:cacheprovider`; for other runners, use their supported isolation options. If shared mutable
+  state cannot be isolated, coordinate serial runs. Re-run a lone failure alone before calling it a
+  finding, and report the baseline as command + count.
+- **When you find shared ground with a sibling, settle it with the sibling.** Two Strategists found
+  the same choke point, exchanged messages, agreed five points, and wrote them as addenda to their
+  own files. The Architect got a settled seam instead of a conflict. That cost the coordinator nothing.

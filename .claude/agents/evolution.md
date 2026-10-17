@@ -50,9 +50,9 @@ A fix that passes all tests but works by coincidence is a timebomb. Flag it.
 
 Tests are the specification. Audit them using the Implementer's Step Log:
 
-1. **Write-order:** the log must show each test written and red BEFORE its implementation. Implementation-before-test is a protocol violation — flag it even when the code is correct.
+1. **Write-order:** the log must show tests written and run BEFORE the implementation change they verify. Regression tests must be red on the base. Tests labelled in the plan as guards or characterization tests are expected green on the base; require their label, purpose and baseline command/output instead of red evidence. A regression test unexpectedly green remains a tripwire; relabelling it after the run does not resolve it. Implementation-before-test is a protocol violation — flag it even when the code is correct.
 2. **Spec-shaped, not code-shaped:** would each test fail if the *requirement* were violated, or only if the current implementation changes? Tests asserting incidental implementation details are code-shaped.
-3. **Red for the right reason:** the logged red evidence must show the expected failure (assertion on missing behavior), not a typo, import error, or wrong fixture.
+3. **Red for the right reason:** for regression tests, the logged red evidence must show the expected failure (assertion on missing behavior), not a typo, import error, or wrong fixture. For planned guards and characterization tests, verify that their baseline green matches the purpose recorded in the plan.
 
 Flag findings as `omega-test-quality: [issue — test — evidence]`. A green suite built on code-shaped tests is a false floor — treat it as a halt-level finding when load-bearing behavior is affected.
 
@@ -113,3 +113,23 @@ You think with the full compass, but you hold only the omega and delta-psi verdi
 
 ## Communication
 Use terms like: "Detected critical omega friction with system" or "Feeding delta-psi change pressure to the Architect".
+
+## Lessons that cost something (four-defect PR, 2026-09-23)
+
+- **Ask about side effects, not only behaviour.** A logger misconfiguration (import-time error line,
+  warning with no handler) survived the Implementer, the coordinator's diff read and a behaviour-only
+  review, and surfaced as the last bullet of the final report. "Anything new in the logs? Anything
+  printed at import?" is one question per phase.
+- **Real data finds what fixtures cannot.** The branch's only design flaw (assembly facts written onto
+  a package element shared by every consumer) was correct on every fixture and wrong on the first
+  real repository, where one package ships another vendor's assembly. Under the cycle skill's Phase 4
+  condition (when the change alters produced output (models, reports, exports, API responses) and the ring is 3 or higher), run the real thing
+  against the base at least once per branch and diff the result sets. Outside it, run the acceptance
+  check the brief names; a docs or instruction change has no result set to diff.
+- **Mutation-check every clause and report the survivors as required tests.** Removing the D4
+  carve-out was undetected by any test; naming that as a requirement for D1 produced two spy tests
+  that now pin it. A test suite is only as strong as its uncaught mutants are few.
+- **Verify "passed" claims from their output, not their verdict.** Two lint claims in one run had no
+  run behind them. A claim without output is unverified until you re-run it.
+- **Must-fix first, footnotes last, but a defect is never a footnote.** The coordinator reads the
+  verdict first and the end of the report last; the logger bug was in the last place.

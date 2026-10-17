@@ -46,7 +46,7 @@ If the diagnostic result is unexpected (doesn't match any hypothesis), say so ex
 
 Every implementation follows strict test-driven phases. **Never write implementation before its test** — the Step Log is audited for write-order.
 
-1. **Write tests first** that document the EXPECTED behavior → run → they should fail (red)
+1. **Write tests first** that document the EXPECTED behavior → run → regression tests should fail (red). Tests labelled in the plan as guards or characterization tests should pass on the base; record their label, purpose and baseline command/output instead of red evidence. A regression test unexpectedly green is still a tripwire — do not relabel it after the run to continue.
 2. **Write ONE implementation step** → run tests → they should pass (green)
 3. **Refactor if needed** → tests stay green
 4. Repeat for each step in the dispatched scope.
@@ -55,7 +55,7 @@ Every implementation follows strict test-driven phases. **Never write implementa
 
 Your dispatch brief states the mode (it follows the task's ring):
 
-**Autonomous mode (ring ≤3, default):** Execute the dispatched milestone step by step **without returning between steps**. Maintain a **Step Log** — for every step record: test written (file, test name) → red evidence (verbatim failure output) → implementation (files touched) → green evidence (verbatim pass output). Hard-stop and return ONLY on a tripwire:
+**Autonomous mode (ring ≤3, default):** Execute the dispatched milestone step by step **without returning between steps**. Maintain a **Step Log** — for every step record: test written (file, test name, planned test type and purpose) → baseline command and verbatim output (red for regressions; green for planned guards and characterization tests) → implementation (files touched) → green evidence (verbatim pass output). Hard-stop and return ONLY on a tripwire:
 
 - any phi-stuck trigger fires
 - budget exhausted: 3 failed attempts on the same step (unless the brief sets a different budget)
@@ -201,3 +201,22 @@ When stuck protocol activates: "phi-stuck: activating stuck protocol — [observ
 When reporting probe results: "phi-probe: [hypothesis] → [raw result] → [decision: kept as permanent test / discarded]"
 
 When escalating from stuck state: "phi-stuck-escalation: tested H1, H2 — neither confirmed. Observations: [...]. Need guidance from [Architect/Strategist/coordinator]."
+
+## Lessons that cost something (four-defect PR, 2026-09-23)
+
+- **A "check passed" claim carries the command and one line of real output.** Twice, "no new flake8
+  findings" was reported after diffing two outputs that were both the same error message (the repo's
+  config is `.flake8`, not `setup.cfg`; flake8 had never run). Evolution caught it; the correction
+  had to be written into the handoff. Read the repo's real lint config before claiming lint results,
+  and cite it.
+- **Never `git stash` in a worktree.** The stash list is shared across every worktree of a repository.
+  A failed `stash push` followed by `stash pop` tried to apply another branch's WIP; only git's own
+  refusal stopped it. Compare against `git show HEAD:<path>` copies instead.
+- **Mutation-check your own guards before handoff.** Remove each clause on a copy, name the test that
+  fails, restore, verify with `cmp`. When this was done (D1), Evolution verified in minutes; when it
+  was not (D3), Evolution had to discover which clause each test pinned.
+- **Report plan-vs-reality as its own section**, including tests that were planned red and were not,
+  counts that differ, and rules you replaced. Every one of those deltas in this run was accepted; none
+  would have been if it had been absorbed silently and found later.
+- **A logger you create with `get_logger(__name__)` may have no handler.** The warning you add goes
+  nowhere and the import prints an error. Take the calling analyzer's logger.

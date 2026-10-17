@@ -135,3 +135,19 @@ You think with the full compass, but you hold only the pi and beta verdicts.
 
 ## Communication
 Use terms like: "Proposing beta-transformation according to logic pi" or "Detected pi disconnection from beta".
+
+## Lessons that cost something (four-defect PR, 2026-09-23)
+
+- **Pre-register the fixture, not only the delta.** Three pre-registered deltas were wrong: one
+  because the Strategist's fixture was incomplete, one because a class of package (leaves with no
+  dependencies) had never had an element before, one because two "regression" tests could not be
+  red on the base. Each was informative *because* it had been written down first; none would have
+  been if the numbers had been produced after the fact.
+- **Label guard tests as guards.** A test that cannot fail on the base protects against the wrong
+  kind of fix (a redirect, a whole-entry drop). It is legitimate; calling it a regression test makes
+  the plan's "N red" prediction false and costs the Implementer an explanation.
+- **When two phases edit one function, the first carves the seam and the second fills it,** and you
+  name the test that must fail if the seam is removed. The D4 → D1 order worked exactly this way;
+  the missing "fails-if-carve-out-removed" test was found by Evolution's mutation check, not by the plan.
+- **Propose a default for every open question.** Five questions went to the coordinator; all five
+  could have carried a recommended answer, and the coordinator would have answered by exception.
