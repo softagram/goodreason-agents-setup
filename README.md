@@ -8,7 +8,7 @@ Instead of one AI agent doing everything, GoodReason splits complex work across 
 
 | Agent | Anchors | Role | Tools |
 |-------|-----------|------|-------|
-| **Strategist** | Purpose + Context | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
+| **Strategist** | Purpose + Environment | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
 | **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
 | **Implementer** | Solution + Implementation | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
 | **Evolution** | Feedback + Change Pressure | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |

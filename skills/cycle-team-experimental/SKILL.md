@@ -26,7 +26,7 @@ Without it, the `TeamCreate` / `SendMessage` tools are absent and this skill can
 
 ## What is identical to `/goodreason:cycle`
 
-The four phases and their substance — Strategist (α×χ), Architect (π×β), Implementer (φ×τ), Evolution (ω×Δψ) — plus the **ring selector**, **hypothesis gate**, **TDD discipline with autonomy budgets and tripwires**, **Evolution-as-separate-verifier**, the **disconnection audit**, the **diagram protocol**, and the **handoff contract** are UNCHANGED. Team mode changes only the *delivery mechanism*: persistent teammates + peer messaging. When in doubt about a phase's content, follow the standard cycle.
+The four phases and their substance — Strategist (α×χ), Architect (π×β), Implementer (φ×τ), Evolution (ω×ΔΨ) — plus the **ring selector**, **hypothesis gate**, **TDD discipline with autonomy budgets and tripwires**, **Evolution-as-separate-verifier**, the **disconnection audit**, the **diagram protocol**, and the **handoff contract** are UNCHANGED. Team mode changes only the *delivery mechanism*: persistent teammates + peer messaging. When in doubt about a phase's content, follow the standard cycle.
 
 ## Setup
 
@@ -88,4 +88,4 @@ Leaving idle teammates alive wastes resources — never skip teardown.
 
 ## Summary
 
-After teardown, summarize the cycle results, any remaining Δψ (change pressure) for the next iteration, and the paths of any `.mmd` diagrams written.
+After teardown, summarize the cycle results, any remaining ΔΨ (change pressure) for the next iteration, and the paths of any `.mmd` diagrams written.

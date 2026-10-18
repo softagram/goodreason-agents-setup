@@ -174,7 +174,7 @@ These rules apply to every change you produce. Violations are quality defects, n
 
 When your change alters public behavior, a visible interface, a configuration key, an error message surface, or an operational procedure, update the corresponding docs **in the same change**. A fix that silently diverges from the docs is a latent bug.
 
-If no docs exist for the changed surface, do NOT silently drop it — state it as `chi-gap: no documentation exists for <X>` in your handoff. The coordinator decides whether docs are created in-scope or filed as Δψ.
+If no docs exist for the changed surface, do NOT silently drop it — state it as `chi-gap: no documentation exists for <X>` in your handoff. The coordinator decides whether docs are created in-scope or filed as ΔΨ.
 
 ### Branch and commit discipline
 
