@@ -77,7 +77,9 @@ Read Evolution's final report to the end before writing PR text; a defect can si
 ## Agent retirement (coordinator)
 Stop each subagent as soon as its handoff is verified and recorded, in the same turn, unless its next
 phase is already queued for it:
-- An Implementer whose phase is committed gets either the next queued phase or a stop.
+- An Implementer whose phase is committed gets either the next queued phase or a stop. Release the
+  next phase only after the previous one is verified and committed: an agent that starts editing while
+  the coordinator verifies puts half-finished work into the commit.
 - Reviewers and one-off agents (Architect plans, reference pulls, measurements) are stopped as soon as
   their report is saved; their findings live in the spec, not in the agent.
 - Before stopping, make sure the agent's output is on disk (handoff file, report): a stopped agent
