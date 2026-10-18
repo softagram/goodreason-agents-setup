@@ -74,4 +74,15 @@ Use the **Evolution** agent at each milestone and pre-commit (ring ≤3) or afte
 
 Read Evolution's final report to the end before writing PR text; a defect can sit in the last bullet.
 
+## Agent retirement (coordinator)
+Stop each subagent as soon as its handoff is verified and recorded, in the same turn, unless its next
+phase is already queued for it:
+- An Implementer whose phase is committed gets either the next queued phase or a stop.
+- Reviewers and one-off agents (Architect plans, reference pulls, measurements) are stopped as soon as
+  their report is saved; their findings live in the spec, not in the agent.
+- Before stopping, make sure the agent's output is on disk (handoff file, report): a stopped agent
+  cannot be asked to resend a truncated message.
+
+Long multi-phase work otherwise accumulates idle agents that cost resources and blur who owns what.
+
 After all phases, summarize the cycle results and any remaining delta-psi (change pressure) for the next iteration.
