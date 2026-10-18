@@ -11,7 +11,7 @@ Instead of one AI agent doing everything, GoodReason splits complex work across 
 | **Strategist** | Purpose + Environment | Verifies build/test foundations, generates competing hypotheses and candidate theories, flags goal/reality conflicts | Read, Glob, Grep, Bash, SendMessage |
 | **Architect** | Theory + Structure | Designs structure and interfaces; when hypotheses exist, designs a diagnostic experiment (Phase 0) before a fix | Read, Glob, Grep, SendMessage |
 | **Implementer** | Solution + Implementation | Writes code under strict TDD phasing; when stuck, uses the phi-stuck protocol with probe tests instead of grinding | Write, Read, Edit, Bash, Glob, Grep, SendMessage |
-| **Evolution** | Feedback + Change Pressure | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Glob, Grep, SendMessage |
+| **Evolution** | Feedback + Change Pressure | Runs tests, verifies the fix works for the right reasons, flags causal-mismatch and unverified-mechanism risks | Bash, Read, Write, Glob, Grep, SendMessage |
 
 > `SendMessage` lets the agents talk to each other directly in **team mode**. It is only active when Claude Code's experimental Agent Teams feature is enabled (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`); without that flag it is simply inert and the agents work exactly as they always have.
 
@@ -22,7 +22,7 @@ Single-agent development blurs roles. The agent that writes code also evaluates 
 - **Strategist** has no write access — leads purpose and information (alpha, chi): validates goals against verified facts and proposes hypotheses and theories
 - **Architect** has no write access — holds the theory verdict (pi) and designs structure (beta)
 - **Implementer** writes the code (phi, tau) — but holds no quality verdict over its own work
-- **Evolution** never fixes code — holds the feedback verdict (omega) and names change pressure (delta-psi)
+- **Evolution** never fixes code — writes only probes, experiments and reports in its scratch directory, holds the feedback verdict (omega) and names change pressure (delta-psi)
 
 The pairs define who *decides*, not who may think about what. Cross-anchor tensions are reported to the anchor's lead agent rather than silently resolved — and the agent that writes code never judges its own work.
 
