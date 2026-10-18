@@ -79,7 +79,9 @@ Stop each subagent as soon as its handoff is verified and recorded, in the same 
 phase is already queued for it:
 - An Implementer whose phase is committed gets either the next queued phase or a stop. Release the
   next phase only after the previous one is verified and committed: an agent that starts editing while
-  the coordinator verifies puts half-finished work into the commit.
+  the coordinator verifies puts half-finished work into the commit. Commit only the files named in the
+  handoff (never `git add -A` on a worktree an agent may still touch), and only after the agent has
+  confirmed it stopped editing; re-run the suite if anything changed since the verification run.
 - Reviewers and one-off agents (Architect plans, reference pulls, measurements) are stopped as soon as
   their report is saved; their findings live in the spec, not in the agent.
 - Before stopping, make sure the agent's output is on disk (handoff file, report): a stopped agent
