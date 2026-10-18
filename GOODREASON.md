@@ -16,17 +16,17 @@ A system of interest is interpreted through eight semantic anchors — foundatio
 | --- | --- | --- | --- |
 | **α (alpha)** | **Purpose** | Purpose, mindset, identity — goals, values, mission, vision, intent | North (N) |
 | **π (pi)** | **Theory** | Theory, reasoning, justification — models, logic, concepts, abstractions, design science | Northwest (NW) |
-| **χ (chi)** | **Context** | Context, input, model, connection to reality — facts, environment, data, observations, operational reality | West (W) |
-| **Δψ (delta-psi)** | **Change Pressure** | Change pressure, anomaly, transformation — development, evolution, renewal, pending transitions | Southwest (SW) |
+| **χ (chi)** | **Environment** | Environment, boundary conditions, input, model, connection to reality — facts, data, observations, operational reality | West (W) |
+| **ΔΨ (delta-psi)** | **Change Pressure** | Change pressure, anomaly, transformation — development, evolution, renewal, pending transitions | Southwest (SW) |
 | **Ω (omega)** | **Feedback** | Feedback, learning, reflection — monitoring, effects, measurement, goal-setting and goal-reaching, learning loops | South (S) |
 | **τ (tau)** | **Implementation** | Implementation, practice, integration — coherence, impact | Southeast (SE) |
 | **φ (phi)** | **Solution** | Solution, design, interface — R&D, possible responses | East (E) |
 | **β (beta)** | **Structure** | Structure, agency, organization — architecture, hierarchy, who carries responsibility | Northeast (NE) |
 
-In each Meaning cell, the words before the dash are the anchor's **fixed end** — the shared α–Ω grammar of the ISSS 2026 paper; the words after the dash are its **open end**, available for contextual interpretation. Each symbol is a **semantic cluster**, not a single English word. When applying GoodReason:
+In each Meaning cell, the words before the dash are the anchor's **fixed end** — the shared α–Ω grammar of the ISSS 2026 paper, as refined by the Modern Knowledge Technology whitepaper (2026-07: χ = Environment, canonical ΔΨ casing); the words after the dash are its **open end**, available for contextual interpretation. Each symbol is a **semantic cluster**, not a single English word. When applying GoodReason:
 
 - **χ (chi)** is much more than a facts file: it is the system's whole connection to reality — inputs, logs, measured facts, declared metadata, the working model of the situation, the state of the world as it actually is, as opposed to how it is claimed to be.
-- **Δψ (delta-psi)** is not only pressure to change but also the **anomaly** that signals it — a bug, an unexpected behavior, a deviation from the expected is a Δψ-anomaly — plus ongoing transformation, declared-but-not-yet-executed renewal, and the delta between what is and what is becoming.
+- **ΔΨ (delta-psi)** is not only pressure to change but also the **anomaly** that signals it — a bug, an unexpected behavior, a deviation from the expected is a ΔΨ-anomaly — plus ongoing transformation, declared-but-not-yet-executed renewal, and the delta between what is and what is becoming.
 - **α (alpha)** spans values, mission, dream, goal, aspiration — and **identity and mindset**: not only what the system *wants* to be but what it understands itself *to be*.
 - **β (beta)** is not only static architecture but **agency**: which structure, role or organization carries the responsibility — and the decision rights — to act.
 - **φ (phi)** is the designed response — the solution, design or interface that becomes possible. What is actually being *done* in practice belongs to τ.
@@ -34,7 +34,7 @@ In each Meaning cell, the words before the dash are the anchor's **fixed end** �
 
 Resist the habit of collapsing each symbol into a single keyword. The richness of the cluster is what makes the framework useful.
 
-> Earlier GoodReason materials used the glosses χ "Information", Δψ "Transformation", φ "Design and action" and τ "Integration". When reading older analyses, map them to the anchors above.
+> Earlier GoodReason materials used the glosses χ "Information", ΔΨ "Transformation", φ "Design and action" and τ "Integration". When reading older analyses, map them to the anchors above.
 
 ### The compass as a question structure
 
@@ -42,8 +42,8 @@ Once the SOI has been named and framed (see Usage Methods), the compass provides
 
 - **α** asks what gives the system purpose, identity or direction.
 - **π** asks which theory, principle or justification frames the interpretation.
-- **χ** asks what context, input or connection to reality must be considered.
-- **Δψ** asks where pressure, anomaly or transformation appears.
+- **χ** asks what environment, boundary conditions, input or connection to reality must be considered.
+- **ΔΨ** asks where pressure, anomaly or transformation appears.
 - **β** asks which structure, agency or organization carries responsibility.
 - **φ** asks what solution, design or interface becomes possible.
 - **τ** asks how the system is implemented, integrated or acted upon.
@@ -58,10 +58,10 @@ These questions turn the α–Ω grammar into a practical inquiry tool while kee
 With 8 symbols there are exactly **C(8,2) = 28 unique pairs**:
 
 ```
-α–β  α–χ  α–Δψ  α–π  α–φ  α–τ  α–Ω
-     β–χ  β–Δψ  β–π  β–φ  β–τ  β–Ω
-          χ–Δψ  χ–π  χ–φ  χ–τ  χ–Ω
-                Δψ–π Δψ–φ Δψ–τ Δψ–Ω
+α–β  α–χ  α–ΔΨ  α–π  α–φ  α–τ  α–Ω
+     β–χ  β–ΔΨ  β–π  β–φ  β–τ  β–Ω
+          χ–ΔΨ  χ–π  χ–φ  χ–τ  χ–Ω
+                ΔΨ–π ΔΨ–φ ΔΨ–τ ΔΨ–Ω
                      π–φ  π–τ  π–Ω
                           φ–τ  φ–Ω
                                τ–Ω
@@ -74,10 +74,10 @@ With 8 symbols there are exactly **C(8,2) = 28 unique pairs**:
 Concrete examples of non-obvious pairs that often carry the decisive finding:
 
 - **χ–α (fact vs claim):** Do the observed operational facts contradict what the system says it is? E.g., a company whose stated value (α) is "privacy by design" while its χ shows 47 subprocessors and no DPIA — a χ–α interference.
-- **Δψ–φ / Δψ–τ (declared change vs designed response vs active work):** Is pressure (Δψ) acknowledged without a designed response (φ) — or designed but never implemented (τ)? "We know we need to" ≠ "we have a solution" ≠ "we are doing it."
+- **ΔΨ–φ / ΔΨ–τ (declared change vs designed response vs active work):** Is pressure (ΔΨ) acknowledged without a designed response (φ) — or designed but never implemented (τ)? "We know we need to" ≠ "we have a solution" ≠ "we are doing it."
 - **χ–Ω (reality vs measurement):** Is the system measuring (Ω) the things that χ actually shows are happening, or is it measuring comfortable proxies?
 - **π–τ (model vs runtime practice):** Does the theoretical model (π) match how modules actually connect and run (τ) in practice?
-- **Δψ–β (change pressure vs structure):** Will existing β survive the change pressure in Δψ, or will it crack?
+- **ΔΨ–β (change pressure vs structure):** Will existing β survive the change pressure in ΔΨ, or will it crack?
 
 **Triads (C(8,3) = 56)** deepen this further when needed: the cross-section of any three symbols sometimes reveals emergent phenomena that no pair captures alone. For example, α–χ–τ together surface "we say we want X (α), the facts show Y (χ), and we are actually doing Z (τ)" — a three-way tension that a pair-only analysis would split across multiple findings.
 
@@ -123,7 +123,7 @@ A system can have every symbol nominally "present" and still fail badly if sever
 ### Systematic analysis (the 28-pair walk)
 
 1. **Name and frame the SOI.** The **System of Interest (SOI)** is the raw target — what is being analyzed — and sits at the origin of the compass. Framing it means committing to an interpretation: why this system matters, to whom, and under which constraints. Every later judgment traces back to this framing.
-2. **Fill in each of the 8 symbols** for this system. What is its α? Its χ? Its current Δψ? Be specific. "chi-gap" ("this is not yet verified") is a legitimate answer and more useful than a fabricated one.
+2. **Fill in each of the 8 symbols** for this system. What is its α? Its χ? Its current ΔΨ? Be specific. "chi-gap" ("this is not yet verified") is a legitimate answer and more useful than a fabricated one.
 3. **Assess each symbol's status** (Absent / Passive / Distorted / Active).
 4. **Walk all 28 pairs deliberately.** For each pair, name the operator and describe the relationship. Flag any interference, disconnection, or domination.
 5. **Escalate to triads** (C(8,3) = 56) only for findings where two symbols are clearly insufficient to describe what is happening.
@@ -147,16 +147,16 @@ When GoodReason organizes a team of agents (human or AI), do **not** distribute 
 
 The four-agent topology in this repository (see CLAUDE.md) is one such projection, aligned with the workflow's control-transfer points rather than with the anchors themselves.
 
-**The compass geometry makes a projection auditable.** The eight positions form four opposition diameters through the SOI at the origin — α–Ω (purpose vs feedback), χ–φ (context vs solution), π–τ (theory vs practice), Δψ–β (pressure vs structure). In the four-agent engineering topology every diameter crosses an agent boundary, and each one must exist as a named channel:
+**The compass geometry makes a projection auditable.** The eight positions form four opposition diameters through the SOI at the origin — α–Ω (purpose vs feedback), χ–φ (environment vs solution), π–τ (theory vs practice), ΔΨ–β (pressure vs structure). In the four-agent engineering topology every diameter crosses an agent boundary, and each one must exist as a named channel:
 
 | Diameter | Tension | Where the channel lives |
 | --- | --- | --- |
 | α–Ω | Did we solve what mattered? | Gate C: Evolution's verdict traced back to the SOI framing |
 | χ–φ | Does the solution meet reality? | Implementer's fact production (phi => chi) back to the Strategist; Gate C reality check |
 | π–τ | Does the model match practice? | Implementer's plan-wrong escalation to the Architect; diagram–code consistency checks |
-| Δψ–β | Will structure survive the pressure? | Evolution's change-pressure escalation to the Architect; Gate B |
+| ΔΨ–β | Will structure survive the pressure? | Evolution's change-pressure escalation to the Architect; Gate B |
 
-Each agent's own pair (α–χ, π–β, φ–τ, Ω–Δψ) is resolved inside a single context, and the coordinator's gates check the load-bearing pairs around each handoff — adjacency around the anchor being handed over at Gate A, the opposition diameters at Gates B and C. A projection in which an opposition diameter has **no** named channel is leaking exactly the tension that diameter exists to carry.
+Each agent's own pair (α–χ, π–β, φ–τ, Ω–ΔΨ) is resolved inside a single context, and the coordinator's gates check the load-bearing pairs around each handoff — adjacency around the anchor being handed over at Gate A, the opposition diameters at Gates B and C. A projection in which an opposition diameter has **no** named channel is leaking exactly the tension that diameter exists to carry.
 
 ---
 
@@ -164,9 +164,9 @@ Each agent's own pair (α–χ, π–β, φ–τ, Ω–Δψ) is resolved inside 
 
 When GoodReason analysis goes shallow, it almost always fails in one of these ways:
 
-- **Habitual-pair defaulting.** The analyst walks α–φ, β–π, and maybe α–χ, then stops. Everything under Δψ, Ω, and τ is treated as "covered" without actually being examined.
-- **Cluster collapse.** A symbol is reduced to a single keyword (χ becomes "facts file only", Δψ becomes "a backlog of pending changes only") and its richer semantic cluster is lost. The analysis then cannot see the things that only surface from the full cluster.
-- **Static audit bias.** Every symbol is treated as a yes/no checklist rather than a live state with direction and velocity. This especially hurts Δψ (which is inherently dynamic) and χ (which has a time dimension — facts change).
+- **Habitual-pair defaulting.** The analyst walks α–φ, β–π, and maybe α–χ, then stops. Everything under ΔΨ, Ω, and τ is treated as "covered" without actually being examined.
+- **Cluster collapse.** A symbol is reduced to a single keyword (χ becomes "facts file only", ΔΨ becomes "a backlog of pending changes only") and its richer semantic cluster is lost. The analysis then cannot see the things that only surface from the full cluster.
+- **Static audit bias.** Every symbol is treated as a yes/no checklist rather than a live state with direction and velocity. This especially hurts ΔΨ (which is inherently dynamic) and χ (which has a time dimension — facts change).
 - **Isolated symbol thinking.** Each of the 8 symbols is described in isolation; no pair analysis is done. The output reads like a well-organized list but carries zero insight, because insight lives in the relationships, not in the nodes.
 - **Finding-pair mismatch.** A finding that belongs to one pair (e.g., χ–α interference) is recorded under a different pair (α–φ) because that is where the analyst was looking. The finding remains but it is misattributed, and subsequent action targets the wrong lever.
 
@@ -178,7 +178,7 @@ If an analysis does not explicitly walk all 28 pairs and does not explicitly ass
 
 - **Reduces blind spots** — forces you to look at things from eight different angles, and from twenty-eight different relationships, rather than the two or three habitual ones.
 - **Common language** — provides precise vocabulary (symbols + operators + status) for communicating complex matters without the over-restriction of plain English.
-- **Predictability** — helps see where Δψ (change pressure) will break β (structure) *before* it happens.
+- **Predictability** — helps see where ΔΨ (change pressure) will break β (structure) *before* it happens.
 - **Domain-agnostic** — the same 8 symbols apply to a software system, a business, a team, a geopolitical situation, or a single decision, at any level of recursion.
 
 ---

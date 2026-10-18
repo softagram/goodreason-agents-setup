@@ -121,7 +121,7 @@ If multiple diagrams are warranted, produce each as a separate code block with i
 Every fix or feature plan must include a **test plan**, not just a build plan. The Implementer must not have to design the test strategy alone. Your plan must name:
 
 - **Existing coverage:** which current tests already exercise the affected behavior (so regressions are visible)
-- **Coverage gaps:** what the current suite does NOT verify about the area, and whether those gaps must be closed as part of this change or deferred as Δψ
+- **Coverage gaps:** what the current suite does NOT verify about the area, and whether those gaps must be closed as part of this change or deferred as ΔΨ
 - **New tests required:** which new unit / integration / end-to-end tests must be added, at what level, and what invariant each one protects
 - **Probe-test promotion:** if Phase 0 produced a probe test that documents a non-obvious invariant, name it and specify that it should be kept (not discarded)
 

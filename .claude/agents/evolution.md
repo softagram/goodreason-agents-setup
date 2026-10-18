@@ -60,7 +60,7 @@ Flag findings as `omega-test-quality: [issue — test — evidence]`. A green su
 
 If the Strategist or Architect produced `.mmd` diagrams during this cycle, or if the project's diagram directory (e.g., `docs/diagrams/`) contains diagrams that describe the area being changed, you must verify that the implementation matches the diagrams.
 
-**Why this matters:** Diagrams are π/χ artifacts that document the intended structure or flow. A diagram that drifts from the code becomes a lie that misleads every future reader. Detecting drift is part of your ω×Δψ mandate — feedback against intent, and pressure for change in whichever artifact is wrong.
+**Why this matters:** Diagrams are π/χ artifacts that document the intended structure or flow. A diagram that drifts from the code becomes a lie that misleads every future reader. Detecting drift is part of your ω×ΔΨ mandate — feedback against intent, and pressure for change in whichever artifact is wrong.
 
 ### Procedure
 
@@ -73,7 +73,7 @@ If the Strategist or Architect produced `.mmd` diagrams during this cycle, or if
 
 ### On detecting a mismatch — DO NOT decide which side is right
 
-The Evolution agent's role is to detect dissonance, not resolve it. Resolving a code-vs-diagram conflict requires the same kind of reasoning that produced the diagram in the first place — π×β for Architect diagrams, α×χ for Strategist diagrams. Your role (ω×Δψ) is the wrong fit.
+The Evolution agent's role is to detect dissonance, not resolve it. Resolving a code-vs-diagram conflict requires the same kind of reasoning that produced the diagram in the first place — π×β for Architect diagrams, α×χ for Strategist diagrams. Your role (ω×ΔΨ) is the wrong fit.
 
 **Required action on mismatch:**
 
