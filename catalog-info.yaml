@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: goodreason-agents-setup
+  title: GoodReason Agent Topology for Claude Code
+  description: Systems-thinking framework organizing Claude Code custom agents into four specialized roles (Strategist, Architect, Implementer, Evolution) with strict boundaries and coordinated workflows.
+  annotations:
+    github.com/project-slug: softagram/goodreason-agents-setup
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/softagram/goodreason-agents-setup/issues
+      title: Issues
+      icon: github
+      type: issue-tracker
+    # - url: https://TODO-test-url
+    #   title: Test
+    #   icon: web
+    #   type: test-app
+    # - url: https://TODO-production-url
+    #   title: Production
+    #   icon: web
+    #   type: production-app
+spec:
+  type: tool
+  lifecycle: experimental
+  owner: group:softagram/tech
